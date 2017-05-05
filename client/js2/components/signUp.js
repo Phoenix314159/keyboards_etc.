@@ -1,5 +1,8 @@
 angular.module('ecom').component('signUp', {
     templateUrl: './views/signUp.html',
+    bindings: {
+        view: '<'
+    },
     controller: function (mainService) {
         let vm = this;
         vm.addNewUser = () => {

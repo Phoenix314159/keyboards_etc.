@@ -29,3 +29,9 @@ img{
 .button1:hover {
     box-shadow: inset 0 100px 0 0 #C14800;
 }
+.card:hover{
+    background-color: #8fcafe;
+}
+.hover hover{
+    background-color: #8fcafe;
+}

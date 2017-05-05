@@ -1,12 +1,12 @@
 <link rel="stylesheet" href="../styles/productsStyle.css">
 <div class="container" id="main">
+	{{$ctrl.dude}}
 	<div class="row wow">
 		<div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" ng-repeat="x in $ctrl.products track by $index">
-			<div class="card">
+			<div class="card" style="max-height: 105vh">
 				<div class="view overlay hm-white-slight">
-					<a ui-sref="productDetails"><img class="animated fadeIn" style="margin-left: 30%; margin-top: 5%; height: 50%; width: 50%" ng-src="{{x.image}}" class="img-fluid" alt=""></a>
-					<div class="mask"></div>
-					</a>
+
+					<a ui-sref="productDetails"><img class="animated fadeIn hover" style="margin-left: 10%; margin-top: 8%; height: 50%; width: 50%" ng-src="{{x.image}}" class="img-fluid" alt=""></a>
 				</div>
 				<hr/>
 				<br/>
@@ -15,12 +15,13 @@
 					<p class="card-text"> {{x.descr}}</p>
 					<div class="read-more">
 						<div class="button">
-							<h3>Buy now for {{x.price | currency}}</h3>
+							<h3 style="text-align: center">Buy now for {{x.price | currency}}</h3>
 							<button class="animated bounce button1" ng-class="{'btn btn-warning':!change, 'btn btn-danger':change}" ng-click="change=!change; $ctrl.addToCart(x.id);" button-d >ADD TO CART</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			<br>
 		</div>
 	</div>
 </div>
