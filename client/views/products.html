@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="../styles/productsStyle.css">
+<div class="container" id="main">
+	<div class="row wow">
+		<div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" ng-repeat="x in $ctrl.products track by $index">
+			<div class="card">
+				<div class="view overlay hm-white-slight">
+					<a ui-sref="productDetails"><img class="animated fadeIn" style="margin-left: 30%; margin-top: 5%; height: 50%; width: 50%" ng-src="{{x.image}}" class="img-fluid" alt=""></a>
+					<div class="mask"></div>
+					</a>
+				</div>
+				<hr/>
+				<br/>
+				<div class="card-block">
+					<h4 class="card-title">{{x.name}}</h4>
+					<p class="card-text"> {{x.descr}}</p>
+					<div class="read-more">
+						<div class="button">
+							<h3>Buy now for {{x.price | currency}}</h3>
+							<button class="animated bounce button1" ng-class="{'btn btn-warning':!change, 'btn btn-danger':change}" ng-click="change=!change; $ctrl.addToCart(x.id);" button-d >ADD TO CART</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

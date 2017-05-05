@@ -1,0 +1,14 @@
+.card{
+    width:30vw;
+    height: 50vh;
+    position: absolute;
+    left: 35%;
+    top:10%;
+
+}
+.card-block{
+    width:30vw;
+}
+.image{
+    display: none;
+}

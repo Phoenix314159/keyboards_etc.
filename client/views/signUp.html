@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="../styles/signUpStyle.css">
+<div class="card">
+	<div class="card-block">
+		<div class="text-center">
+			<h3><i class="fa fa-pencil"></i> Sign-Up</h3>
+			<hr class="mt-2 mb-2">
+		</div>
+		<br>
+		<div class="md-form">
+			<i class="fa fa-user prefix"></i>
+			<input type="text" id="form3" class="form-control" ng-model="$ctrl.firstname">
+			<label for="form3">First Name</label>
+		</div>
+		<div class="md-form">
+			<i class="fa fa-user prefix"></i>
+			<input type="text" id="form6" class="form-control"ng-model="$ctrl.lastname">
+			<label for="form3">Last Name</label>
+		</div>
+
+		<div class="md-form">
+			<i class="fa fa-envelope prefix"></i>
+			<input type="text" id="form2" class="form-control" ng-model="$ctrl.email">
+			<label for="form2">Email</label>
+		</div>
+		<div class="md-form">
+			<input type="text" id="form4" class="form-control" ng-model="$ctrl.username">
+			<label for="form2">Username</label>
+		</div>
+
+		<div class="md-form">
+			<input type="text" id="form5" class="form-control" ng-model="$ctrl.password">
+			<label for="form2">Password</label>
+		</div>
+
+		<div class="text-center">
+			<a ui-sref="user"><button class="btn btn-deep-orange" ng-click="$ctrl.addNewUser()">Submit</button></a>
+		</div>
+	</div>
+</div>

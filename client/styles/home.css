@@ -1,0 +1,15 @@
+.third{
+    height:99%;
+    width:99%;
+}
+#first{
+    height: 50vh;
+    width: 50vw;
+}
+.allimages img{
+    height: 20vh;
+    width:20vw;
+}
+.image{
+    display: none;
+}

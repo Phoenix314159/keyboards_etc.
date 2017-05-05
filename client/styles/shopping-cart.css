@@ -1,0 +1,13 @@
+.message{
+    text-align: center;
+    margin-top: 10%;
+}
+.image{
+    display: none;
+}
+shipping{
+    font-size: 2em;
+    position: absolute;
+    bottom: 15%;
+    left:24%;
+}
