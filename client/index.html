@@ -1,192 +1,112 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ecom">
 
-      <head>
+	<head>
 
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-            <meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
 
-            <title>Keyboards Etc.</title>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-            <link href="css/bootstrap.min.css" rel="stylesheet">
-            <link href="css/mdb.min.css" rel="stylesheet">
-            <link href="css/style.css" rel="stylesheet">
-            <style rel="stylesheet">
-                  /* TEMPLATE STYLES */
+		<title>Keyboards Etc.</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/mdb.min.css" rel="stylesheet">
+		<link href="css/style.css" rel="stylesheet">
+		<style rel="stylesheet">
+			/* TEMPLATE STYLES */
 
-                  main {
-                        padding-top: 3rem;
-                        padding-bottom: 2rem;
-                  }
+			main {
+				padding-top: 3rem;
+				padding-bottom: 2rem;
+			}
 
-                  .widget-wrapper {
-                        padding-bottom: 2rem;
-                        border-bottom: 1px solid #e0e0e0;
-                        margin-bottom: 2rem;
-                  }
+			.widget-wrapper {
+				padding-bottom: 2rem;
+				border-bottom: 1px solid #e0e0e0;
+				margin-bottom: 2rem;
+			}
 
-                  .extra-margins {
-                        margin-top: 1rem;
-                        margin-bottom: 2.5rem;
-                  }
+			.extra-margins {
+				margin-top: 1rem;
+				margin-bottom: 2.5rem;
+			}
 
-                  .divider-new {
-                        margin-top: 0;
-                  }
+			.divider-new {
+				margin-top: 0;
+			}
 
-                  .navbar {
-                        background-color: #414a5c;
-                  }
+			.navbar {
+				background-color: #414a5c;
+			}
 
-                  footer.page-footer {
-                        background-color: #414a5c;
-                        margin-top: 2rem;
-                  }
-            </style>
-            <link rel="stylesheet" href="styles/indexStyle.css">
-
-
-      </head>
-
-      <body>
-            <header>
-                  <nav class="navbar navbar-toggleable-md navbar-dark">
-                        <div class="container">
-                              <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                                      data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false"
-                                      aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon"></span>
-                              </button>
-
-                              <div class="collapse navbar-collapse" id="navbarNav1">
-                                    <ul class="navbar-nav mr-auto">
-                                          <li class="nav-item">
-                                                <a class="nav-link" ui-sref="home">Home <span
-                                                        class="sr-only">(current)</span></a>
-                                          </li>
-                                          <li class="nav-item">
-                                                <a class="nav-link"></a>
-                                          </li>
-                                          <li class="nav-item">
-                                                <a class="nav-link" ui-sref="products({type:'allproducts'})">All
-                                                                                                             Products</a>
-                                          </li>
-                                    </ul>
-                                    <form class="form-inline waves-effect waves-light">
-                                          <a class="nav-link" ui-sref="shoppingCart">Shopping Cart</a>
-                                          <a class="nav-link" ui-sref="login">Login</a>
-                                          <a class="nav-link" ui-sref="signup">Sign-Up</a>
-                                    </form>
-                              </div>
-                        </div>
-                  </nav>
-            </header>
-            <a ui-sref="home"><img class="animated bounce image"
-                                   src="http://cdn.mysitemyway.com/etc-mysitemyway/icons/legacy-previews/icons/black-inlay-crystal-clear-bubble-icons-media/001510-black-inlay-crystal-clear-bubble-icon-media-a-media31-back.png"
-                                   style="height:3.5%; width: 3.5%"/></a>
-            <main-comp>
-                  <ui-view></ui-view>
-            </main-comp>
-            <!--<footer class="page-footer center-on-small-only">-->
-            <!--<div class="container-fluid">-->
-            <!--<div class="row">-->
-            <!--<div class="col-md-3 offset-lg-1 hidden-lg-down">-->
-            <!--<h5 class="title">ABOUT MATERIAL DESIGN</h5>-->
-            <!--<p>Material Design (codenamed Quantum Paper) is a design language developed by Google. </p>-->
-
-            <!--<p>Material Design for Bootstrap (MDB) is a powerful Material Design UI KIT for most popular HTML, CSS, and JS framework - Bootstrap.</p>-->
-            <!--</div>-->
-            <!--<hr class="hidden-md-up">-->
-
-            <!--&lt;!&ndash;Second column&ndash;&gt;-->
-            <!--<div class="col-lg-2 col-md-4 offset-lg-1">-->
-            <!--<h5 class="title">First column</h5>-->
-            <!--<ul>-->
-            <!--<li><a href="#!">Link 1</a></li>-->
-            <!--<li><a href="#!">Link 2</a></li>-->
-            <!--<li><a href="#!">Link 3</a></li>-->
-            <!--<li><a href="#!">Link 4</a></li>-->
-            <!--</ul>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;/.Second column&ndash;&gt;-->
-
-            <!--<hr class="hidden-md-up">-->
-
-            <!--&lt;!&ndash;Third column&ndash;&gt;-->
-            <!--<div class="col-lg-2 col-md-4">-->
-            <!--<h5 class="title">Second column</h5>-->
-            <!--<ul>-->
-            <!--<li><a href="#!">Link 1</a></li>-->
-            <!--<li><a href="#!">Link 2</a></li>-->
-            <!--<li><a href="#!">Link 3</a></li>-->
-            <!--<li><a href="#!">Link 4</a></li>-->
-            <!--</ul>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;/.Third column&ndash;&gt;-->
-
-            <!--<hr class="hidden-md-up">-->
-
-            <!--&lt;!&ndash;Fourth column&ndash;&gt;-->
-            <!--<div class="col-lg-2 col-md-4">-->
-            <!--<h5 class="title">Third column</h5>-->
-            <!--<ul>-->
-            <!--<li><a href="#!">Link 1</a></li>-->
-            <!--<li><a href="#!">Link 2</a></li>-->
-            <!--<li><a href="#!">Link 3</a></li>-->
-            <!--<li><a href="#!">Link 4</a></li>-->
-            <!--</ul>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;/.Fourth column&ndash;&gt;-->
-
-            <!--</div>-->
-            <!--</div>-->
-            <!--&lt;!&ndash;/.Footer Links&ndash;&gt;-->
-
-            <!--<hr>-->
-            <!--<div class="call-to-action">-->
-            <!--<h4>Material Design for Bootstrap</h4>-->
-            <!--<ul>-->
-            <!--<li>-->
-            <!--<h5>Get our UI KIT for free</h5></li>-->
-            <!--<li><a target="_blank" href="http://mdbootstrap.com/getting-started/" class="btn btn-info" rel="nofollow">Sign up!</a></li>-->
-            <!--<li><a target="_blank" href="http://mdbootstrap.com/material-design-for-bootstrap/" class="btn btn-primary" rel="nofollow">Learn more</a></li>-->
-            <!--</ul>-->
-            <!--</div>-->
-
-            <!--<div class="footer-copyright">-->
-            <!--<div class="container-fluid">-->
-            <!--<a href="http://www.MDBootstrap.com"> MDBootstrap.com </a>-->
-
-            <!--</div>-->
-            <!--</div>-->
-            <!--</footer>-->
+			footer.page-footer {
+				background-color: #414a5c;
+				margin-top: 2rem;
+			}
+		</style>
+		<link rel="stylesheet" href="styles/indexStyle.css">
 
 
-            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
-            <script src="https://cdn.auth0.com/js/lock/10.15/lock.min.js"></script>
-            <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-            <!--<script src="dist/js/bundle.js"></script>-->
-            <script src="js2/app.js"></script>
-            <script src="js2/components/products.js"></script>
-            <script src="js2/components/parent.js"></script>
 
-            <script src="js2/services/mainService.js"></script>
-            <script src="js2/components/home.js"></script>
-            <script src="js2/components/login.js"></script>
-            <script src="js2/components/signUp.js"></script>
+	</head>
 
-            <script src="js2/components/productDetails.js"></script>
-            <script src="js2/directives/shipping.js"></script>
-            <script src="js2/components/shoppingCart.js"></script>
-            <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-            <script type="text/javascript" src="js/tether.min.js"></script>
-            <script src="js2/directives/buttonD.js"></script>
-            <script type="text/javascript" src="js/bootstrap.min.js"></script>
-            <script type="text/javascript" src="js/mdb.min.js"></script>
-            <!--<script>new WOW().init();</script>-->
-      </body>
+	<body>
+		<main-comp>
+			<header>
+				<nav class="navbar navbar-toggleable-md navbar-dark">
+					<div class="container">
+						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+						        data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false"
+						        aria-label="Toggle navigation">
+							<span class="navbar-toggler-icon"></span>
+						</button>
+
+						<div class="collapse navbar-collapse" id="navbarNav1">
+							<ul class="navbar-nav mr-auto">
+								<li class="nav-item">
+									<a class="nav-link" ui-sref="products({type:'allproducts'})">All
+										Products</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" ui-sref="shoppingCart">Shopping Cart</a>
+								</li>
+							</ul>
+							<form class="form-inline waves-effect waves-light">
+								<a class="nav-link" ui-sref="login">Login</a>
+								<a class="nav-link" ui-sref="signup">Sign-Up</a>
+							</form>
+						</div>
+					</div>
+				</nav>
+			</header>
+			<ui-view></ui-view>
+		</main-comp>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+		<script src="https://cdn.auth0.com/js/lock/10.15/lock.min.js"></script>
+		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+		<!--<script src="dist/js/bundle.js"></script>-->
+		<script src="js2/app.js"></script>
+		<script src="js2/controller/mainCtrl.js"></script>
+		<script src="js2/components/products.js"></script>
+		<script src="js2/components/mainComp.js"></script>
+		<script src="js2/services/mainService.js"></script>
+		<script src="js2/components/changeLogin.js"></script>
+		<script src="js2/components/home.js"></script>
+		<script src="js2/components/login.js"></script>
+		<script src="js2/components/signUp.js"></script>
+		<script src="js2/components/payment.js"></script>
+		<script src="js2/components/productDetails.js"></script>
+		<script src="js2/directives/shipping.js"></script>
+		<script src="js2/components/shoppingCart.js"></script>
+		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+		<script type="text/javascript" src="js/tether.min.js"></script>
+		<script src="js2/directives/buttonD.js"></script>
+		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/mdb.min.js"></script>
+		<script>new WOW().init();</script>
+	</body>
 
 </html>

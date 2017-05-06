@@ -1,5 +1,13 @@
-img{
+img {
     position: relative;
     left:15%;
     margin-top:2%;
+}
+h5{
+    position: relative;
+    left:14%;
+    margin-top:4%;
+}
+change-login{
+    color:white;
 }

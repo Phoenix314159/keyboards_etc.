@@ -1,6 +1,7 @@
 img{
     height: 90%;
     width: 90%;
+
 }
 #main{
     margin-top: 5%;
@@ -34,4 +35,7 @@ img{
 }
 .hover hover{
     background-color: #8fcafe;
+}
+main{
+    display: none;
 }

@@ -16,7 +16,7 @@ app.use(session({
 app.set('db', massiveInstance);
 let passport = require('./services/passport');
 let corsOptions = {
-    origin: 'http://localhost:3060'
+    origin: 'http://localhost:3055'
 }
 app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/client'));
@@ -29,7 +29,7 @@ app.use(passport.session());
 
 app.get('/api/products/:type', mainCtrl.getProducts);
 app.get('/api/products/:id', mainCtrl.getProductById);
-app.get('/api/cart', mainCtrl.getCart);
+app.get('/api/cart/:id', mainCtrl.getCart);
 app.post('/api/addtocart', mainCtrl.addToCart);
 
 app.post('/api/login',passport.authenticate('local', {
@@ -55,6 +55,6 @@ app.delete('/api/delete/:id', mainCtrl.deleteFromCart);
 app.put('/api/updatequantity', mainCtrl.updateQuantity);
 
 
-app.listen(3060, () => {
-    console.log('listening on port 3060');
+app.listen(3055, () => {
+    console.log('listening on port 3055');
 })

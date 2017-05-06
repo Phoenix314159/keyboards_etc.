@@ -27,7 +27,6 @@ module.exports = {
         }
     },
     me: (req, res) => {
-        console.log(req.user);
         return res.status(200)
             .send(req.user);
     },
@@ -39,7 +38,7 @@ module.exports = {
         })
     },
     getCart: (req, res) => {
-        db.get_shopping_cart((err, cart) => {
+        db.get_shopping_cart([req.params.id],(err, cart) => {
             !err ? res.status(200).send(cart) : res.status(404).send(err);
         })
     },

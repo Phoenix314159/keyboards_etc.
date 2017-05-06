@@ -20,58 +20,67 @@
 					<tr ng-repeat="x in $ctrl.products">
 						<td class="col-sm-8 col-md-6">
 							<div class="media">
-								<a class="thumbnail pull-left" href="#"> <img class="img-fluid" ng-src="{{x.image}}" style="width: 72px; height: 72px;"> </a>
+								<a class="thumbnail pull-left" href="#"> <img class="img-fluid" ng-src="{{x.image}}"
+								                                              style="width: 72px; height: 72px;"> </a>
 								<div class="media-body">
 									<h4 class="media-heading" style="font-size: 20px"><a href="#">{{x.name}}</a></h4>
 									<span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
 								</div>
-							</div></td>
+							</div>
+						</td>
 						<td class="col-sm-1 col-md-1" style="text-align: center">
-							<input type="number" class="form-control" id="exampleInputEmail1" ng-model="x.quantity" />
-							<button class="btn btn-default" ng-click="$ctrl.updateTotal(x.cartid, x.quantity)">Update</button>
+							<input type="number" class="form-control" id="exampleInputEmail1" ng-model="x.quantity"/>
+							<button class="btn btn-default" ng-click="$ctrl.updateTotal(x.cartid, x.quantity)">Update
+							</button>
 						</td>
 						<td class="col-sm-1 col-md-1 text-center" value="0"><strong>{{x.price | currency}}</strong></td>
-						<td class="col-sm-1 col-md-1 text-center" ng-model="$ctrl.gTotal"><strong>{{x.total | currency}}</strong></td>
+						<td class="col-sm-1 col-md-1 text-center" ng-model="$ctrl.gTotal"><strong>{{x.total |
+							currency}}</strong></td>
 						<td class="col-sm-1 col-md-1">
-							<button type="button" class="btn btn-danger" ng-click="$ctrl.deleteFromCart(x.cartid); $ctrl.updateTotal()">
+							<button type="button" class="btn btn-danger"
+							        ng-click="$ctrl.deleteFromCart(x.cartid); $ctrl.updateTotal()">
 								<span class="glyphicon glyphicon-remove"></span> Remove
-							</button></td>
+							</button>
+						</td>
 					</tr>
 
-						<td>   </td>
-						<td>   </td>
-						<td>   </td>
-						<td><h5>Subtotal</h5></td>
-						<td class="text-right"><h5><strong>{{$ctrl.cartTotal | currency}}</strong></h5></td>
+					<td>  </td>
+					<td>  </td>
+					<td>  </td>
+					<td><h5>Subtotal</h5></td>
+					<td class="text-right"><h5><strong>{{$ctrl.cartTotal | currency}}</strong></h5></td>
 					</tr>
 					<tr>
-						<td>   </td>
-						<td>   </td>
-						<td>   </td>
+						<td>  </td>
+						<td>  </td>
+						<td>  </td>
 						<td><h5>Estimated shipping</h5></td>
 						<td class="text-right"><h5><strong>{{$ctrl.qTotal | currency}}</strong></h5></td>
 					</tr>
 					<tr>
-						<td>   </td>
-						<td>   </td>
-						<td>   </td>
+						<td>  </td>
+						<td>  </td>
+						<td>  </td>
 						<td><h3>Total</h3></td>
 						<td class="text-right"><h3><strong>{{$ctrl.gTotal | currency}}</strong></h3></td>
 					</tr>
 					<shipping></shipping>
 					<tr>
 
-						<td>   </td>
-						<td>   </td>
-						<td>   </td>
+						<td>  </td>
+						<td>  </td>
+						<td>  </td>
 						<td>
 							<button ui-sref="products({type:'allproducts'})" type="button" class="btn btn-default">
 								<span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-							</button></td>
+							</button>
+						</td>
 						<td>
-							<button type="button" class="btn btn-success">
-								Checkout <span class="glyphicon glyphicon-play"></span>
-							</button></td>
+							<a ui-sref="payment">
+								<button type="button" class="btn btn-success">
+									Checkout <span class="glyphicon glyphicon-play"></span>
+								</button>
+							</a></td>
 					</tr>
 				</tbody>
 			</table>

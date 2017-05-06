@@ -5,9 +5,15 @@
 .image{
     display: none;
 }
+/*h5{*/
+    /*display: none;*/
+/*}*/
 shipping{
     font-size: 2em;
     position: absolute;
     bottom: 15%;
     left:24%;
+}
+main{
+    display: none;
 }

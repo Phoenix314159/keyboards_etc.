@@ -1,5 +1,12 @@
 angular.module('ecom').service('mainService', function ($http, $stateParams) {
-    var serverUrl = 'http://localhost:3060'
+    var serverUrl = 'http://localhost:3055';
+    let vm = this;
+    this.getCustomerInfo = () => {
+        return $http({
+            method: 'GET',
+            url: serverUrl + '/api/me'
+        })
+    }
 
     this.getProducts = () => {
         return $http({
@@ -14,6 +21,7 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
         })
     }
     this.login = (username, password) => {
+
         return $http({
             method: 'POST',
             data: {username, password},
@@ -27,10 +35,10 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
             url: serverUrl + '/api/newuser'
         })
     };
-    this.getCart = () => {
+    this.getCart = (id) => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/cart'
+            url: serverUrl + '/api/cart/' + id
         })
     }
     this.addToCart = (customerId, productId, quantity) => {

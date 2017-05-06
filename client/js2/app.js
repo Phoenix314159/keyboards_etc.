@@ -2,7 +2,7 @@ angular.module('ecom', ['ui.router'])
     .config(function ($urlRouterProvider, $stateProvider) {
         $stateProvider
             .state('home', {
-                url: '/home',
+                url: '/',
                 template: '<home></home>',
                 component: 'home'
             })
@@ -34,6 +34,11 @@ angular.module('ecom', ['ui.router'])
             .state('user', {
                 url: '/products',
                 templateUrl: './views/user.html'
+            })
+            .state('payment', {
+                url: '/payment',
+                templateUrl: '<payment></payment>',
+                component: 'payment'
             })
         $urlRouterProvider.otherwise('/');
     })
