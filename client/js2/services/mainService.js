@@ -20,8 +20,10 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
             url: serverUrl + '/api/products/' + id
         })
     }
-    this.login = (username, password) => {
+    this.isLoggedIn = false;
 
+    this.login = (username, password) => {
+        this.isLoggedIn = true;
         return $http({
             method: 'POST',
             data: {username, password},
@@ -61,7 +63,6 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
             url: serverUrl + '/api/updatequantity'
         })
     }
-
 
 
 })

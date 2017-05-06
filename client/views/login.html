@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../styles/loginStyle.css">
-<div class="card">
+<div class="card" ng-if="$ctrl.show ? true : false">
 	<div class="card-block">
 		<div class="text-center">
 			<h3><i class="fa fa-lock"></i> Login:</h3>
@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="text-center">
-			<a ui-sref="home"><button class="btn btn-warning" ng-click="$ctrl.login()">Login</button></a>
+			<button class="btn btn-warning" ng-click="$ctrl.login(); $ctrl.goHome()">Login</button>
 		</div>
 
 	</div>
@@ -29,4 +29,8 @@
 		</div>
 	</div>
 
+</div>
+<div class="redirect" ng-if="$ctrl.show ? false : true">
+	<h1>Welcome to Keyboards Etc. {{$ctrl.name}}!</h1>
+	<h3>Redirecting in<div count-down></div></h3>
 </div>

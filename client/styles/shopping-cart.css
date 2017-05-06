@@ -17,3 +17,7 @@ shipping{
 main{
     display: none;
 }
+.total{
+    background-color: #8fcafe;
+    margin-top: 10%;
+}

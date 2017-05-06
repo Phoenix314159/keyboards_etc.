@@ -1,0 +1,28 @@
+<header>
+      <nav class="navbar navbar-toggleable-md navbar-dark">
+            <div class="container">
+                  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                          data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false"
+                          aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                  </button>
+
+                  <div class="collapse navbar-collapse" id="navbarNav1">
+                        <ul class="navbar-nav mr-auto">
+                              <li class="nav-item">
+                                    <a class="nav-link" ui-sref="products({type:'allproducts'})">All
+                                                                                                 Products</a>
+                              </li>
+                              <li class="nav-item">
+                                    <a class="nav-link" ui-sref="shoppingCart">Shopping Cart</a>
+                              </li>
+                        </ul>
+                        <form class="form-inline waves-effect waves-light">
+                              <a class="nav-link" ui-sref="login">{{main.text}}</a>
+                              <a class="nav-link" ui-sref="signup">Sign-Up</a>
+                        </form>
+                  </div>
+            </div>
+      </nav>
+</header>
+<ui-view></ui-view>

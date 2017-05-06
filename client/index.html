@@ -1,112 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="ecom">
-
-	<head>
-
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-		<meta http-equiv="x-ua-compatible" content="ie=edge">
-
-		<title>Keyboards Etc.</title>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<link href="css/mdb.min.css" rel="stylesheet">
-		<link href="css/style.css" rel="stylesheet">
-		<style rel="stylesheet">
-			/* TEMPLATE STYLES */
-
-			main {
-				padding-top: 3rem;
-				padding-bottom: 2rem;
-			}
-
-			.widget-wrapper {
-				padding-bottom: 2rem;
-				border-bottom: 1px solid #e0e0e0;
-				margin-bottom: 2rem;
-			}
-
-			.extra-margins {
-				margin-top: 1rem;
-				margin-bottom: 2.5rem;
-			}
-
-			.divider-new {
-				margin-top: 0;
-			}
-
-			.navbar {
-				background-color: #414a5c;
-			}
-
-			footer.page-footer {
-				background-color: #414a5c;
-				margin-top: 2rem;
-			}
-		</style>
-		<link rel="stylesheet" href="styles/indexStyle.css">
+      <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+            <meta http-equiv="x-ua-compatible" content="ie=edge">
+            <title>Keyboards Etc.</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
+            <link href="css/bootstrap.min.css" rel="stylesheet">
+            <link href="css/mdb.min.css" rel="stylesheet">
+            <link href="css/style.css" rel="stylesheet">
+            <link rel="stylesheet" href="styles/indexStyle.css">
+            <link rel="stylesheet" href="styles/indexStyle2.css">
 
 
 
-	</head>
+      </head>
 
-	<body>
-		<main-comp>
-			<header>
-				<nav class="navbar navbar-toggleable-md navbar-dark">
-					<div class="container">
-						<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-						        data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false"
-						        aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon"></span>
-						</button>
-
-						<div class="collapse navbar-collapse" id="navbarNav1">
-							<ul class="navbar-nav mr-auto">
-								<li class="nav-item">
-									<a class="nav-link" ui-sref="products({type:'allproducts'})">All
-										Products</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" ui-sref="shoppingCart">Shopping Cart</a>
-								</li>
-							</ul>
-							<form class="form-inline waves-effect waves-light">
-								<a class="nav-link" ui-sref="login">Login</a>
-								<a class="nav-link" ui-sref="signup">Sign-Up</a>
-							</form>
-						</div>
-					</div>
-				</nav>
-			</header>
-			<ui-view></ui-view>
-		</main-comp>
-
-		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
-		<script src="https://cdn.auth0.com/js/lock/10.15/lock.min.js"></script>
-		<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-		<!--<script src="dist/js/bundle.js"></script>-->
-		<script src="js2/app.js"></script>
-		<script src="js2/controller/mainCtrl.js"></script>
-		<script src="js2/components/products.js"></script>
-		<script src="js2/components/mainComp.js"></script>
-		<script src="js2/services/mainService.js"></script>
-		<script src="js2/components/changeLogin.js"></script>
-		<script src="js2/components/home.js"></script>
-		<script src="js2/components/login.js"></script>
-		<script src="js2/components/signUp.js"></script>
-		<script src="js2/components/payment.js"></script>
-		<script src="js2/components/productDetails.js"></script>
-		<script src="js2/directives/shipping.js"></script>
-		<script src="js2/components/shoppingCart.js"></script>
-		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-		<script type="text/javascript" src="js/tether.min.js"></script>
-		<script src="js2/directives/buttonD.js"></script>
-		<script type="text/javascript" src="js/bootstrap.min.js"></script>
-		<script type="text/javascript" src="js/mdb.min.js"></script>
-		<script>new WOW().init();</script>
-	</body>
-
+      <body ng-controller="mainCtrl">
+            <main-comp></main-comp>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.4.2/angular-ui-router.js"></script>
+            <script src="https://cdn.auth0.com/js/lock/10.15/lock.min.js"></script>
+            <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+            <!--<script src="dist/js/bundle.js"></script>-->
+            <script src="js2/app.js"></script>
+            <script src="js2/components/products.js"></script>
+            <script src="js2/controller/loginCtrl.js"></script>
+            <script src="js2/components/mainComp.js"></script>
+            <script src="js2/controller/mainCtrl.js"></script>
+            <script src="js2/services/mainService.js"></script>
+            <script src="js2/components/home.js"></script>
+            <script src="js2/components/login.js"></script>
+            <script src="js2/controller/mainCtrl.js"></script>
+            <script src="js2/components/signUp.js"></script>
+            <script src="js2/components/payment.js"></script>
+            <script src="js2/directives/countDown.js"></script>
+            <script src="js2/components/productDetails.js"></script>
+            <script src="js2/directives/shipping.js"></script>
+            <script src="js2/components/shoppingCart.js"></script>
+            <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+            <script type="text/javascript" src="js/tether.min.js"></script>
+            <script src="js2/directives/buttonD.js"></script>
+            <script type="text/javascript" src="js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="js/mdb.min.js"></script>
+            <script src="js2/components/timeOut.js"></script>
+            <script>new WOW().init();</script>
+      </body>
 </html>

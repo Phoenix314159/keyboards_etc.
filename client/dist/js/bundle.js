@@ -2,7 +2,7 @@
 
 angular.module('ecom', ['ui.router']).config(["$urlRouterProvider", "$stateProvider", function ($urlRouterProvider, $stateProvider) {
     $stateProvider.state('home', {
-        url: '/home',
+        url: '/',
         template: '<home></home>',
         component: 'home'
     }).state('login', {
@@ -28,6 +28,10 @@ angular.module('ecom', ['ui.router']).config(["$urlRouterProvider", "$stateProvi
     }).state('user', {
         url: '/products',
         templateUrl: './views/user.html'
+    }).state('payment', {
+        url: '/payment',
+        templateUrl: '<payment></payment>',
+        component: 'payment'
     });
     $urlRouterProvider.otherwise('/');
 }]);
@@ -35,34 +39,66 @@ angular.module('ecom', ['ui.router']).config(["$urlRouterProvider", "$stateProvi
 
 angular.module('ecom').component('home', {
     templateUrl: './views/home.html',
-    controller: function controller() {
+    bindings: {
+        loggedIn: '='
+    },
+    controller: ["mainService", function controller(mainService) {
         var vm = this;
         vm.subscribe = function () {
             alert('Thank you for subscribing ' + vm.name);
         };
-    }
+        vm.addToCart = function (productId) {
+            mainService.addToCart(1, productId, 1).then(function (response) {});
+        };
+    }]
 });
 'use strict';
 
 angular.module('ecom').component('login', {
     templateUrl: './views/login.html',
-    controller: ["mainService", function controller(mainService) {
+
+    bindings: {
+        loggedIn: '<'
+
+    },
+    require: {
+        parent: '^mainComp'
+    },
+    controller: ["mainService", "$scope", function controller(mainService, $scope) {
         var vm = this;
-        vm.login = function () {
-            mainService.login(vm.username, vm.password).then(function (response) {});
+        vm.$onInit = function () {
+            vm.login = function () {
+                mainService.login(vm.username, vm.password).then(function (response) {
+                    vm.parent.loggedIn = true;
+                    console.log(vm.parent);
+                });
+            };
         };
     }]
 });
 'use strict';
 
 angular.module('ecom').component('mainComp', {
+	template: '<header>\n\t\t\t\t<nav class="navbar navbar-toggleable-md navbar-dark">\n\t\t\t\t\t<div class="container">\n\t\t\t\t\t\t<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"\n\t\t\t\t\t\t        data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false"\n\t\t\t\t\t\t        aria-label="Toggle navigation">\n\t\t\t\t\t\t\t<span class="navbar-toggler-icon"></span>\n\t\t\t\t\t\t</button>\n\n\t\t\t\t    <div class="collapse navbar-collapse" id="navbarNav1">\n\t\t\t\t\t\t\t<ul class="navbar-nav mr-auto">\n\t\t\t\t\t\t\t\t<li class="nav-item">\n\t\t\t\t\t\t\t\t\t<a class="nav-link" ui-sref="products({type:\'allproducts\'})">All\n\t\t\t\t\t\t\t\t\t\tProducts</a>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t<li class="nav-item">\n\t\t\t\t\t\t\t\t\t<a class="nav-link" ui-sref="shoppingCart">Shopping Cart</a>\n\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t</ul>\n\t\t\t\t\t\t\t<form class="form-inline waves-effect waves-light">\n\t\t\t\t\t\t\t\t<a class="nav-link" ui-sref="login">{{$ctrl.text}}</a>\n\t\t\t\t\t\t\t\t<a class="nav-link" ui-sref="signup">Sign-Up</a>\n\t\t\t\t\t\t\t</form>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t</nav>\n\t\t\t\t</header>\n       <ui-view></ui-view>',
 
-    controller: ["mainService", function controller(mainService) {
-        var vm = this;
-        vm.hiya = function () {
-            return 'Hiya from parent!';
-        };
-    }]
+	controller: function controller() {
+		var vm = this;
+		vm.text = 'Login';
+		vm.$onInit = function () {
+			if (vm.loggedIn) {
+				vm.text = 'Welcome';
+				console.log(vm.loggedIn);
+			}
+		};
+	}
+});
+'use strict';
+
+angular.module('ecom').component('payment', {
+
+    templateUrl: './views/payment.html',
+
+    controller: function controller() {}
 });
 'use strict';
 
@@ -73,9 +109,6 @@ angular.module('ecom').component('productDetails', {
 
 angular.module('ecom').component('products', {
     templateUrl: './views/products.html',
-    // require: {
-    //     parent: '^mainComp'
-    // },
 
     controller: ["mainService", function controller(mainService) {
         var vm = this;
@@ -86,9 +119,14 @@ angular.module('ecom').component('products', {
             });
         };
         vm.getProducts();
+        mainService.getCustomerInfo().then(function (response) {
+            console.log(response.data);
+            vm.customer = response.data;
+        });
 
         vm.addToCart = function (productId) {
-            mainService.addToCart(1, productId, 1).then(function (response) {});
+
+            mainService.addToCart(vm.customer.id, productId, 1).then(function (response) {});
         };
         // vm.$onInit = () => {
         //     vm.dude = vm.parent.hiya();
@@ -105,65 +143,66 @@ angular.module('ecom').component('products', {
 
 angular.module('ecom').component('shoppingCart', {
     templateUrl: './views/shopping-cart.html',
-    // require: {
-    //   parent: '^mainComp'
-    // },
+
     controller: ["mainService", function controller(mainService) {
         var vm = this;
         vm.showCart = false;
-
-        mainService.getCart().then(function (response) {
-            if (response.data.length > 0) {
-                vm.showCart = true;
-                vm.products = response.data.map(function (v, i, a) {
-                    v.total = v.price * v.quantity;
-                    return v;
-                });
-                vm.cartTotal = 0;
-                vm.quantityTotal = 0;
-                for (var i = 0; i < vm.products.length; i++) {
-                    vm.cartTotal += vm.products[i].total;
-                    vm.quantityTotal += vm.products[i].quantity;
+        mainService.getCustomerInfo().then(function (response) {
+            vm.customer = response.data;
+            mainService.getCart(vm.customer.id).then(function (response) {
+                if (response.data.length > 0) {
+                    vm.showCart = true;
+                    vm.products = response.data.map(function (v) {
+                        v.total = v.price * v.quantity;
+                        return v;
+                    });
+                    vm.cartTotal = 0;
+                    vm.quantityTotal = 0;
+                    for (var i = 0; i < vm.products.length; i++) {
+                        vm.cartTotal += vm.products[i].total;
+                        vm.quantityTotal += vm.products[i].quantity;
+                    }
+                    vm.qTotal = vm.quantityTotal * 1.99;
+                    vm.gTotal = vm.cartTotal + vm.qTotal;
                 }
-                vm.qTotal = vm.quantityTotal * 1.99;
-                vm.gTotal = vm.cartTotal + vm.qTotal;
-            }
-        });
+            });
 
-        vm.updateTotal = function (id, quantity) {
-            mainService.updateQuantity(id, quantity).then(function (response) {
-                mainService.getCart().then(function (response) {
-                    if (response.data.length > 0) {
-                        vm.showCart = true;
-                        vm.products = response.data.map(function (v, i, a) {
-                            v.total = v.price * v.quantity;
-                            return v;
-                        });
-                        vm.cartTotal = 0;
-                        vm.quantityTotal = 0;
-                        for (var i = 0; i < vm.products.length; i++) {
-                            vm.cartTotal += vm.products[i].total;
-                            vm.quantityTotal += vm.products[i].quantity;
+            vm.updateTotal = function (cartid, quantity) {
+                mainService.updateQuantity(cartid, quantity).then(function (response) {
+                    mainService.getCart(vm.customer.id).then(function (response) {
+                        if (response.data.length > 0) {
+                            vm.showCart = true;
+                            vm.products = response.data.map(function (v) {
+                                v.total = v.price * v.quantity;
+                                return v;
+                            });
+                            vm.cartTotal = 0;
+                            vm.quantityTotal = 0;
+                            for (var i = 0; i < vm.products.length; i++) {
+                                vm.cartTotal += vm.products[i].total;
+                                vm.quantityTotal += vm.products[i].quantity;
+                            }
+                            vm.qTotal = vm.quantityTotal * 1.99;
+                            vm.gTotal = vm.cartTotal + vm.qTotal;
                         }
-                        vm.qTotal = vm.quantityTotal * 1.99;
-                        vm.gTotal = vm.cartTotal + vm.qTotal;
-                    }
+                    });
                 });
-            });
-        };
-        vm.deleteFromCart = function (id) {
-            mainService.deleteFromCart(id).then(function (response) {
-                mainService.getCart().then(function (response) {
-                    if (response.data.length > 0) {
-                        vm.showCart = true;
-                        vm.products = response.data;
-                    } else {
-                        vm.showCart = false;
-                    }
+            };
+            vm.deleteFromCart = function (cartid) {
+                mainService.deleteFromCart(cartid).then(function (response) {
+                    mainService.getCart(vm.customer.id).then(function (response) {
+                        if (response.data.length > 0) {
+                            vm.showCart = true;
+                            vm.products = response.data;
+                        } else {
+                            vm.showCart = false;
+                        }
+                    });
                 });
-            });
-        };
+            };
+        });
     }]
+
 });
 'use strict';
 
@@ -179,6 +218,15 @@ angular.module('ecom').component('signUp', {
         };
     }]
 });
+'use strict';
+
+angular.module('ecom').controller('mainCtrl', ["$scope", "mainService", function ($scope, mainService) {
+   $scope.text = 'Login';
+   if ($scope.loggedIn) {
+      $scope.text = 'Welcome';
+   }
+   console.log($scope.loggedIn);
+}]);
 'use strict';
 
 angular.module('ecom').directive('buttonD', function () {
@@ -203,6 +251,13 @@ angular.module('ecom').directive('shipping', function () {
 
 angular.module('ecom').service('mainService', ["$http", "$stateParams", function ($http, $stateParams) {
     var serverUrl = 'http://localhost:3055';
+    var vm = this;
+    this.getCustomerInfo = function () {
+        return $http({
+            method: 'GET',
+            url: serverUrl + '/api/me'
+        });
+    };
 
     this.getProducts = function () {
         return $http({
@@ -217,6 +272,7 @@ angular.module('ecom').service('mainService', ["$http", "$stateParams", function
         });
     };
     this.login = function (username, password) {
+
         return $http({
             method: 'POST',
             data: { username: username, password: password },
@@ -230,10 +286,10 @@ angular.module('ecom').service('mainService', ["$http", "$stateParams", function
             url: serverUrl + '/api/newuser'
         });
     };
-    this.getCart = function () {
+    this.getCart = function (id) {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/cart'
+            url: serverUrl + '/api/cart/' + id
         });
     };
     this.addToCart = function (customerId, productId, quantity) {

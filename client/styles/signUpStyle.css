@@ -1,9 +1,13 @@
 .card{
     width:30vw;
     height: 70vh;
-   position: absolute;
+    position: absolute;
     left: 35%;
     top:10%;
+}
+.redirect{
+    text-align: center;
+    margin-top: 10%;
 }
 .card-block{
     width:30vw;

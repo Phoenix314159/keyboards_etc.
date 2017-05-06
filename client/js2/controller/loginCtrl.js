@@ -1,9 +1,4 @@
-angular.module('ecom').controller('mainCtrl', function ($scope, mainService) {
-    $scope.text = 'Login';
-    if($scope.loggedIn){
-        $scope.text = 'Welcome';
-    }
-   // console.log($scope.loggedIn)
+angular.module('ecom').controller('loginCtrl', function (mainService) {
     // let vm = this;
     // vm.loggedIn = false;
     // vm.login = () => {
@@ -15,4 +10,4 @@ angular.module('ecom').controller('mainCtrl', function ($scope, mainService) {
     // if (vm.isLoggedIn) {
     //     vm.text = 'Welcome';
     // }
-})
+});
