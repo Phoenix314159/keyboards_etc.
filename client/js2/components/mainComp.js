@@ -1,10 +1,10 @@
 angular.module('ecom').component('mainComp', {
     templateUrl: './views/mainComp.html',
     controllerAs: 'main',
-    // bindings: {
-    //   text: '<'
-    // },
-    controller: function (mainService) {
+     // bindings: {
+     //   text: '@'
+     // },
+    controller: function () {
         let vm = this;
         // vm.loggedIn = false;
         // vm.login = () => {
@@ -13,6 +13,7 @@ angular.module('ecom').component('mainComp', {
         //         console.log(vm.parent)
         //     })
         // }
+        // vm.state = modelFactory.get();
         vm.text = 'Login';
         if (vm.isLoggedIn) {
             vm.text = 'Welcome';

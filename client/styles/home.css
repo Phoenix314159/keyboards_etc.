@@ -10,6 +10,22 @@
     height: 20vh;
     width:20vw;
 }
+.title{
+    color:whitesmoke;
+    position: relative;
+    font-size: 3em;
+}
+h4{
+    color: #1E88E5;
+    font-size: 1.5em;
+    font-style: oblique;
+
+    text-align: center;
+}
+.box{
+    font-family: 'Inknut Antiqua', serif;
+
+}
 /*.image{*/
     /*display: none;*/
 /*}*/
