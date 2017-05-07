@@ -33,7 +33,7 @@ img{
     box-shadow: inset 0 100px 0 0 #C14800;
 }
 .card:hover{
-    background-color: #8fcafe;
+    background-color: whitesmoke;
 }
 .hover hover{
     background-color: #8fcafe;
@@ -47,4 +47,10 @@ main{
 }
 h3{
     font-family: 'Inknut Antiqua', serif;
+}
+.bord{
+    border: 4px solid black;
+}
+.bord2{
+    border: 2px solid black;
 }

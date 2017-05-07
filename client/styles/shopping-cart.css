@@ -20,5 +20,17 @@ main{
 .total{
     background-color: #8fcafe;
     margin-top: 10%;
-    
+}
+.message h3{
+    padding-top: 1%;
+    text-align: center;
+    margin-top:10%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border: solid 2px black;
+    border-radius: 2%;
+    height: 9vh;
+    width: 40vw;
+    font-family: 'Inknut Antiqua', serif;
 }

@@ -6,8 +6,17 @@
     top:10%;
 }
 .redirect{
+    padding-top: 2%;
     text-align: center;
-    margin-top: 10%;
+    margin-top:10%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border: solid 2px black;
+    border-radius: 2%;
+    height: auto;
+    width: 40vw;
+    font-family: 'Inknut Antiqua', serif;
 }
 .card-block{
     width:30vw;
@@ -20,4 +29,7 @@ h5{
 }
 main{
     display: none;
+}
+.sign{
+    font-family: 'Inknut Antiqua', serif;
 }

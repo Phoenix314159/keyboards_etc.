@@ -1,1 +1,19 @@
-<h1>DUDE</h1>
+<link rel="stylesheet" href="../styles/productDetailsStyle.css">
+
+<div class="card">
+
+      <!--Card image-->
+      <img class="img-fluid" ng-src="{{$ctrl.product.image}}"  alt="">
+      <!--/.Card image-->
+
+      <!--Card content-->
+      <div class="card-block">
+            <!--Title-->
+            <h4 class="card-title">{{$ctrl.product.name}}</h4>
+            <!--Text-->
+            <p class="card-text">{{$ctrl.product.descr}}</p>
+            <a href="#" class="btn btn-primary">Button</a>
+      </div>
+      <!--/.Card content-->
+
+</div>

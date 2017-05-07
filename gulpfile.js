@@ -12,13 +12,13 @@ let gulp = require('gulp')
     , requireConvert = require("gulp-require-convert");
 
 gulp.task('build-css', function () {
-    gulp.src('./styles/*')
+    return gulp.src('./client/styles/*')
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cachebust.resources())
-        .pipe(concat('styles.css'))
+        // .pipe(concat('client/styles.css'))
         .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./dist'));
+        .pipe(gulp.dest('./client/dist/css'));
 });
 
 gulp.task('build-js', function () {
@@ -29,7 +29,7 @@ gulp.task('build-js', function () {
         .pipe(concat('bundle.js'))
         .pipe(ngAnnotate())
 
-        // .pipe(uglify())
+        .pipe(uglify())
         // .pipe(requireConvert())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./client/dist/js'));

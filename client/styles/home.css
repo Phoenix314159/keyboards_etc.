@@ -26,6 +26,9 @@ h4{
     font-family: 'Inknut Antiqua', serif;
 
 }
+.bord{
+    border: 4px solid black;
+}
 /*.image{*/
     /*display: none;*/
 /*}*/

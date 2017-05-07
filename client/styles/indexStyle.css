@@ -1,6 +1,5 @@
-/*body, html {*/
-    /*height: 100%;*/
-/*}*/
+
+
 img {
     position: relative;
     left:15%;
@@ -22,3 +21,17 @@ body{
     background-position: center;
     background-size: cover;
 }
+header{
+    font-family: 'Inknut Antiqua', serif;
+}
+
+header a:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    z-index: 1;
+}
+/*.dude{*/
+    /*margin-left: 5%;*/
+/*}*/
+

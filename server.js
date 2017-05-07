@@ -3,6 +3,7 @@ const express = require('express'),
     cors = require('cors'),
     app = module.exports = express(),
     config = require('./config.js'),
+    log = require('./loggedIn'),
     massive = require('massive'),
     connString = config.MASSIVE_URI,
     massiveInstance = massive.connectSync({connectionString: connString}),
@@ -16,7 +17,7 @@ app.use(session({
 app.set('db', massiveInstance);
 let passport = require('./services/passport');
 let corsOptions = {
-    origin: 'http://localhost:3055'
+    origin: 'http://localhost:3065'
 }
 app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/client'));
@@ -27,24 +28,25 @@ const mainCtrl = require('./mainCtrl');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/api/products/:type', mainCtrl.getProducts);
-app.get('/api/products/:id', mainCtrl.getProductById);
+app.get('/api/products', mainCtrl.getProducts);
+app.get('/api/products/:type', mainCtrl.getProductByType);
+app.get('/api/product/:id', mainCtrl.getProductById);
 app.get('/api/cart/:id', mainCtrl.getCart);
 app.post('/api/addtocart', mainCtrl.addToCart);
 
-app.post('/api/login',passport.authenticate('local', {
-        successRedirect: '/api/me',
-        failureRedirect: '/#!/login',
-        failureFlash: true
-    }));
-app.get('/api/logout', function(req, res, next) {
+app.post('/api/login', passport.authenticate('local', {
+    successRedirect: '/api/me',
+    failureRedirect: '/#!/login',
+    failureFlash: true
+}));
+app.get('/api/logout', function (req, res, next) {
+    console.log('logging out');
     req.logout();
-    return res.status(200)
-        .send('logged out');
+    res.redirect('/');
 });
 
 // POLICIES //
-var isAuthed = function(req, res, next) {
+var isAuthed = function (req, res, next) {
     if (!req.isAuthenticated()) return res.status(401)
         .send();
     return next();
@@ -52,9 +54,10 @@ var isAuthed = function(req, res, next) {
 app.get('/api/me', isAuthed, mainCtrl.me);
 app.post('/api/newuser', mainCtrl.addUser);
 app.delete('/api/delete/:id', mainCtrl.deleteFromCart);
+app.delete('/api/deleteall', mainCtrl.deleteCart);
 app.put('/api/updatequantity', mainCtrl.updateQuantity);
 
 
-app.listen(3055, () => {
-    console.log('listening on port 3055');
+app.listen(3065, () => {
+    console.log('listening on port 3065');
 })

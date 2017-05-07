@@ -9,19 +9,47 @@ const app = require('./server'),
 
 module.exports = {
     getProducts: (req, res) => {
-        if (req.params.type !== 'allproducts') {
-            db.get_product_by_type([req.params.type], (err, product) => {
+
+        db.get_products((err, products) => {
+            !err ? res.status(200).send(products) : res.status(404).send(err);
+        })
+
+
+        // if (req.params.type !== 'allproducts') {
+        //     console.log(1)
+        //     db.get_product_by_type([req.params.type], (err, product) => {
+        //         !err ? res.status(200).send(product) : res.status(404).send(err);
+        //     })
+        // }else if(req.params.id){
+        //
+        //     db.get_product_by_id([req.params.id], (err, product) => {
+        //         console.log(2)
+        //         !err ? res.status(200).send(product) : res.status(404).send(err);
+        //     })
+        // }
+        // else {
+        //
+        //
+        // }
+    },
+    getProductById: (req, res) => {
+        if (req.params.id) {
+            console.log(12)
+            db.get_product_by_id([req.params.id], (err, product) => {
                 !err ? res.status(200).send(product) : res.status(404).send(err);
             })
-        } else {
+        }
+    },
+    getProductByType: (req, res) => {
+        if (req.params.type === 'allproducts') {
+            console.log(1)
             db.get_products((err, products) => {
                 !err ? res.status(200).send(products) : res.status(404).send(err);
             })
         }
-    },
-    getProductById: (req, res) => {
-        if (req.params.id) {
-            db.get_product_by_id([req.params.id], (err, product) => {
+        else {
+            console.log(122)
+            db.get_product_by_type([req.params.type], (err, product) => {
                 !err ? res.status(200).send(product) : res.status(404).send(err);
             })
         }
@@ -38,14 +66,16 @@ module.exports = {
         })
     },
     getCart: (req, res) => {
-        db.get_shopping_cart([req.params.id],(err, cart) => {
+        db.get_shopping_cart([req.params.id], (err, cart) => {
+            console.log('man')
             !err ? res.status(200).send(cart) : res.status(404).send(err);
         })
     },
     addToCart: (req, res) => {
+        console.log('yo')
         db.add_to_cart([req.body.customerId, req.body.productId, req.body.quantity], (err, cart) => {
-                !err ? res.status(200).send(cart) : res.status(404).send(err);
-            })
+            !err ? res.status(200).send(cart) : res.status(404).send(err);
+        })
 
     },
     deleteFromCart: (req, res) => {
@@ -53,6 +83,11 @@ module.exports = {
             !err ? res.status(200).send(cart) : res.status(404).send(err);
         })
 
+    },
+    deleteCart: (req, res) => {
+        db.delete_all_cart((err, cart) => {
+            !err ? res.status(200).send(cart) : res.status(404).send(err);
+        })
     },
     updateQuantity: (req, res) => {
         console.log(req.body);

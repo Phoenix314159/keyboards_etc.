@@ -7,7 +7,6 @@ angular.module('ecom').directive('countDown', function ($timeout) {
             $timeout(() => {
                 scope.number = 2;
                 $timeout(() => {
-                    console.log(scope.number);
                     scope.number = 1;
                     $timeout(() => {
                     }, 1000)

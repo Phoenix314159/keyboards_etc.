@@ -13,6 +13,18 @@ main{
     display: none;
 }
 .redirect{
+    padding-top: 1.5%;
     text-align: center;
     margin-top:10%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border: solid 2px black;
+    border-radius: 2%;
+    height: auto;
+    width: 40vw;
+    font-family: 'Inknut Antiqua', serif;
+}
+.text{
+    font-family: 'Inknut Antiqua', serif;
 }
