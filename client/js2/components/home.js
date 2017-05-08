@@ -10,7 +10,7 @@ angular.module('ecom').component('home', {
         mainService.getCustomerInfo().then(response => {
             vm.customer = response.data;  //gets customer info to obtain customer id
         })
-        mainService.getProductById2(16).then(response1 => {
+        mainService.getProductById2(16).then(response1 => { //get an array of the 3 specific products on the home page to display
             mainService.getProductById2(5).then(response2 => {
                 mainService.getProductById2(29).then(response3 => {
                     vm.product16 = response1.data[0];

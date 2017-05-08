@@ -49,6 +49,7 @@ h3{
 }
 .bord{
     border: 4px solid black;
+    border-radius: 2%;
 }
 .bord2{
     border: 2px solid black;

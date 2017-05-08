@@ -40,7 +40,7 @@
                               </div>
                         </div>
                   </div>
-                  <div class="col-lg-8">
+                  <div class="col-lg-8 bord back">
                         <div class="row wow fadeIn" data-wow-delay="0.2s">
                               <div class="col-lg-12">
                                     <div class="divider-new">
@@ -98,16 +98,16 @@
                         <div class="row">
                               <div class="col-lg-4" ng-repeat="x in $ctrl.product3">
                                     <div class="card  wow fadeIn bord" data-wow-delay="0.2s">
-                                          <div class="view overlay hm-white-slight">
+                                          <div class="view overlay hm-white-slight small">
                                                 <a ui-sref="productDetails({id:{{x.id}}})"><img
-                                                        style="margin-right: 50%" ng-src="{{x.image}}" alt=""></a>
+                                                        style="" ng-src="{{x.image}}" alt=""></a>
                                           </div>
                                           <div class="card-block">
-                                                <h4 class="card-title" style="text-align: center">{{x.name}}</h4>
+                                                <h4 class="card-title box" style="text-align: center">{{x.name}}</h4>
                                                 <p class="card-text"></p>
                                                 <a ng-click="$ctrl.addToCart(x.id);change1=!change1;"
                                                    ng-class="{'btn btn-warning':!change1, 'btn btn-danger':change1}"
-                                                   button-d>Buy now for <strong>{{x.price}}</strong></a>
+                                                   button-d>Buy now for <strong>{{x.price | currency}}</strong></a>
                                           </div>
                                     </div>
                               </div>
