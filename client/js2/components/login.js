@@ -5,16 +5,21 @@ angular.module('ecom').component('login', {
     },
     controller: function (mainService, $timeout, $state) {
         let vm = this;
-        vm.$onInit = () => {
-            vm.login = () => {
-                vm.main.login(vm.username, vm.password).then(response => {  //login user
-                    console.log(response);
-                    mainService.deleteAllFromCart().then(response => {  //delete all products from previous cart
-                    })
-                    mainService.getCustomerInfo().then(response => {  //get customers first name
-                        vm.name = response.data.firstname;
-                    })
+
+        vm.login = () => {
+            mainService.login(vm.username, vm.password).then(response => {  //login user
+                console.log(response);
+                mainService.deleteAllFromCart().then(response => {  //delete all products from previous cart
                 })
+                mainService.getCustomerInfo().then(response => {  //get customers first name
+                    vm.name = response.data.firstname;
+                    vm.check();
+                })
+            })
+        }
+        vm.$onInit = () => {
+            vm.check = () => {
+                vm.main.checkLogin()
             }
         }
         vm.show = true;  //show cart initially
@@ -30,7 +35,6 @@ angular.module('ecom').component('login', {
                 }, 2000)
                 $state.go('home');  //go to home state
             }, 3000)
-
         }
     }
 })

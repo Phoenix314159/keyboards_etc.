@@ -9,7 +9,7 @@ angular.module('ecom').component('productDetails', {
                 vm.product1 = $stateParams.id;
             })
         }
-        vm.getProducts();
+         vm.getProducts();
 
         mainService.getProductById().then(response => {
             vm.product = response.data[0];

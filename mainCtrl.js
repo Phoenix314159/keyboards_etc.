@@ -5,36 +5,18 @@ const app = require('./server'),
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt);
         return hash;
-    }
-
+    },
+    stripe = require("stripe")('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
+// token = request.body.stripeToken;
 module.exports = {
     getProducts: (req, res) => {
 
         db.get_products((err, products) => {
             !err ? res.status(200).send(products) : res.status(404).send(err);
         })
-
-
-        // if (req.params.type !== 'allproducts') {
-        //     console.log(1)
-        //     db.get_product_by_type([req.params.type], (err, product) => {
-        //         !err ? res.status(200).send(product) : res.status(404).send(err);
-        //     })
-        // }else if(req.params.id){
-        //
-        //     db.get_product_by_id([req.params.id], (err, product) => {
-        //         console.log(2)
-        //         !err ? res.status(200).send(product) : res.status(404).send(err);
-        //     })
-        // }
-        // else {
-        //
-        //
-        // }
     },
     getProductById: (req, res) => {
         if (req.params.id) {
-            console.log(12)
             db.get_product_by_id([req.params.id], (err, product) => {
                 !err ? res.status(200).send(product) : res.status(404).send(err);
             })
@@ -42,23 +24,20 @@ module.exports = {
     },
     getProductByType: (req, res) => {
         if (req.params.type === 'allproducts') {
-            console.log(1)
             db.get_products((err, products) => {
                 !err ? res.status(200).send(products) : res.status(404).send(err);
             })
-        }else if(req.query.id) {
+        } else if (req.query.id) {
             db.get_product_by_id([req.query.id], (err, product) => {
                 !err ? res.status(200).send(product) : res.status(404).send(err);
             })
         }
         else {
-            console.log(122)
             db.get_product_by_type([req.params.type], (err, product) => {
                 !err ? res.status(200).send(product) : res.status(404).send(err);
             })
         }
     },
-
     me: (req, res) => {
         return res.status(200)
             .send(req.user);
@@ -100,7 +79,7 @@ module.exports = {
             !err ? res.status(200).send(cart) : res.status(404).send(err);
         })
     },
-    subTotal: (req, res) => {
+    makePayment: (req, res) => {
 
     }
 }

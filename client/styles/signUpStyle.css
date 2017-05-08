@@ -33,3 +33,7 @@ main{
 .sign{
     font-family: 'Inknut Antiqua', serif;
 }
+.border{
+    border: 2px solid black;
+    border-radius: 2%;
+}

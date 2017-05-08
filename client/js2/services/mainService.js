@@ -15,16 +15,12 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
             url: serverUrl + '/api/products'
         })
     };
-    vm.getProductsByType = () => {
+    vm.getProductsByType = (type) => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/products/' + $stateParams.id
+            url: serverUrl + '/api/products/' + type
         })
     }
-    // vm.addSingleToCart = (item) => {
-    //
-    // }
-    //
     vm.getProductById = () => {
         return $http({
             method: 'GET',
@@ -82,10 +78,23 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
             url: serverUrl + '/api/updatequantity'
         })
     };
+    vm.login = (username, password) => {
+        return $http({
+            method: 'POST',
+            data: {username, password},
+            url: serverUrl + '/api/login'
+        })
+    };
     vm.logout = () => {
         return $http({
             method: 'GET',
             url: serverUrl + '/api/logout'
+        })
+    }
+    vm.checkLogin = () => {
+        return $http({
+            method: 'GET',
+            url: serverUrl + '/api/checklogin'
         })
     }
 

@@ -1,8 +1,14 @@
 <link rel="stylesheet" href="../styles/shopping-cart.css">
-<div class="animated flipInX message" ng-hide="$ctrl.showCart">
-	<h3>You have no items in your cart</h3>
-</div>
 
+<!-- if user is logged in but has no products in cart show this and hide others-->
+<div class="animated zoomIn message" ng-if="$ctrl.show2">
+	<h3>{{$ctrl.message1}}</h3>
+</div>
+<!-- if user is not logged in show this and hide others-->
+<div class="animated zoomIn message" ng-hide="$ctrl.showBox">
+	<h3>{{$ctrl.message2}}</h3>
+</div>
+<!-- if user is logged in and adds a product to cart, show this and hide others-->
 <div class="animated slideInDown container total" ng-show="$ctrl.showCart">
 	<div class="row">
 		<div class="col-sm-12 col-md-10 col-md-offset-1 move">

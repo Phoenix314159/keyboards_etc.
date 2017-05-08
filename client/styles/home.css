@@ -27,7 +27,8 @@ h4{
 
 }
 .back{
-    background-color: whitesmoke;
+    background-color: white;
+    opacity: .9;
 }
 
 .box{

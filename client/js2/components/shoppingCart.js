@@ -1,16 +1,34 @@
 angular.module('ecom').component('shoppingCart', {
     templateUrl: './views/shopping-cart.html',
+    require:{
+        main: '^mainComp'
+    },
 
     controller: function (mainService) {
         let vm = this;
         vm.showCart = false;  //cart is not initially shown if empty
+        vm.showBox2 = true;
+        vm.show2 = false;
+        vm.$onInit = () => {
+            vm.show = vm.main.logged();
+            if (vm.show) {
+                console.log(vm.show)
+                vm.showBox = true;
+                vm.show2 = true;
+            } else {
+                vm.showBox = false;
+            }
+        }
+
+        vm.message1 = 'You have no items in your cart';
+        vm.message2 = 'Please log in to add items to your cart'
         mainService.getCustomerInfo().then(response => {  //gets customer info to obtain id
             vm.customer = response.data;
-            vm.getCartTime = () => {}
 
-                  mainService.getCart(vm.customer.id).then(response => { //gets specific cart pertaining to id
+            mainService.getCart(vm.customer.id).then(response => { //gets specific cart pertaining to id
                       if (response.data.length > 0) {
                           vm.showCart = true;  //show cart if not empty
+                          vm.show2 = false;
                           vm.products = response.data.map(v => { //add total property on each object in products array
                               v.total = v.price * v.quantity     // to get correct quantity
                               return v;

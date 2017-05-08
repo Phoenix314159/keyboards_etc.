@@ -12,6 +12,10 @@
 main{
     display: none;
 }
+.border{
+    border: 2px solid black;
+    border-radius: 2%;
+}
 .redirect{
     padding-top: 1.5%;
     text-align: center;

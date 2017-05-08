@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../styles/loginStyle.css">
-<div class="animated fadeIn card" ng-if="$ctrl.show ? true : false">
+<div class="animated fadeIn card border" ng-if="$ctrl.show ? true : false">
 	<div class="card-block">
 		<div class="text-center">
 			<h3 class="text"><i class="fa fa-lock"></i> Login:</h3>
@@ -18,7 +18,7 @@
 		</div>
 
 		<div class="text-center">
-			<button class="btn btn-warning" ng-click="$ctrl.login(); $ctrl.goHome()">Login</button>
+			<button class="btn btn-warning" ng-click="$ctrl.login(); $ctrl.goHome(); $ctrl.check()">Login</button>
 		</div>
 
 	</div>

@@ -1,12 +1,15 @@
-<form action="/your-server-side-code" method="POST">
-      <script
-              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="pk_test_YCIPURTU6ePqrjERaHH1AHMN"
-              data-amount="999"
-              data-name="Stripe.com"
-              data-description="Widget"
-              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-              data-locale="auto"
-              data-zip-code="true">
-      </script>
+<form action="/charge" method="post" id="payment-form">
+      <div class="form-row">
+            <label for="card-element">
+                  Credit or debit card
+            </label>
+            <div id="card-element">
+                  <!-- a Stripe Element will be inserted here. -->
+            </div>
+
+            <!-- Used to display Element errors -->
+            <div id="card-errors"></div>
+      </div>
+
+      <button>Submit Payment</button>
 </form>

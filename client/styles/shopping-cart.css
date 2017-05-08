@@ -1,7 +1,14 @@
 .message{
     text-align: center;
     margin-top: 10%;
+    padding: 1%;
 }
+.message1{
+    text-align: center;
+    margin-top: 10%;
+    padding: 1%;
+}
+
 .image{
     display: none;
 }

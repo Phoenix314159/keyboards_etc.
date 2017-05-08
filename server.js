@@ -27,13 +27,26 @@ app.use(cookieParser());
 const mainCtrl = require('./mainCtrl');
 app.use(passport.initialize());
 app.use(passport.session());
+// app.use(log.loggedIn);
 
 app.get('/api/products', mainCtrl.getProducts);
 app.get('/api/products/:type', mainCtrl.getProductByType);
 app.get('/api/product/:id', mainCtrl.getProductById);
-app.get('/api/cart/:id', mainCtrl.getCart);
-app.post('/api/addtocart', mainCtrl.addToCart);
-
+app.get('/api/cart/:id', log.loggedIn, mainCtrl.getCart);
+app.post('/api/addtocart', log.loggedIn, mainCtrl.addToCart);
+app.get('/api/checklogin', log.loggedIn, (req, res) => {
+    res.status(200).send({user:true});
+})
+// var supertest = require('supertest-as-promised');
+// var request = supertest('https://ngcourse.herokuapp.com');
+// var assert = require('chai').assert;
+//
+// describe('Backend API', function() {
+//     it ('should return the list of users', function() {
+//         return request.get('/api/v1/users')
+//             .expect(200);
+//     });
+// });
 app.post('/api/login', passport.authenticate('local', {
     successRedirect: '/api/me',
     failureRedirect: '/#!/login',
@@ -45,8 +58,8 @@ app.get('/api/logout', function (req, res, next) {
     res.redirect('/');
 });
 
-// POLICIES //
-var isAuthed = function (req, res, next) {
+
+let isAuthed = function (req, res, next) {
     if (!req.isAuthenticated()) return res.status(401)
         .send();
     return next();

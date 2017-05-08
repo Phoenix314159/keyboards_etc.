@@ -38,5 +38,8 @@
     "passport-auth0": "^0.6.0",
     "passport-local": "^1.0.0",
     "req-flash": "0.0.3"
+  },
+  "devDependencies": {
+    "supertest": "^3.0.0"
   }
 }
