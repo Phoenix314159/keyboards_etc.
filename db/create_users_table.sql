@@ -9,4 +9,4 @@ create table Users(
 
 
 insert into Users(firstname, lastname, email, username, password)
-values('John', 'DOE', 'John312', 'dude@dude.com','Zds342');
+values('John', 'DOE', 'dude@dude.com', 'john1','1');

@@ -14,7 +14,6 @@ img{
     text-align: center;
     color: #FFF;
     padding: 15px 20px;
-
     font-family: 'OpenSansBold', sans-serif;
     font-size: 14px;
     font-weight: bold;
@@ -53,4 +52,8 @@ h3{
 }
 .bord2{
     border: 2px solid black;
+}
+.gome{
+    color:whitesmoke;
+    font-family: 'Inknut Antiqua', serif;
 }

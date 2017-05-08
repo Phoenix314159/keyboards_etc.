@@ -17,7 +17,7 @@ angular.module('ecom', ['ui.router'])
                 component: 'signUp'
             })
             .state('products', {
-                url: '/products?type',
+                url: '/products?type?id',
                 template: '<products></products>',
                 component: 'products'
             })
@@ -27,7 +27,7 @@ angular.module('ecom', ['ui.router'])
                 component: 'shoppingCart'
             })
             .state('productDetails', {
-                url: '/productsdetails?id',
+                url: '/productsdetails?type?id',
                 template: '<product-details></product-details>',
                 component: 'productDetails'
             })

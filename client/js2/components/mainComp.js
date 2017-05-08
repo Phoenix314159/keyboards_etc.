@@ -24,6 +24,11 @@ angular.module('ecom').component('mainComp', {
                     $state.go('home');
                 })
             }
+        // mainService.getCustomerInfo().then(response => {
+        //     vm.getCustomerId = () => {
+        //         return response.data;  //gets customer info to obtain customer id
+        //     }
+        // })
 
 
 

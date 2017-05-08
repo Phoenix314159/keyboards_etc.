@@ -46,6 +46,10 @@ module.exports = {
             db.get_products((err, products) => {
                 !err ? res.status(200).send(products) : res.status(404).send(err);
             })
+        }else if(req.query.id) {
+            db.get_product_by_id([req.query.id], (err, product) => {
+                !err ? res.status(200).send(product) : res.status(404).send(err);
+            })
         }
         else {
             console.log(122)
@@ -54,6 +58,7 @@ module.exports = {
             })
         }
     },
+
     me: (req, res) => {
         return res.status(200)
             .send(req.user);

@@ -18,14 +18,23 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
     vm.getProductsByType = () => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/products/' + $stateParams.type
+            url: serverUrl + '/api/products/' + $stateParams.id
         })
     }
-
+    // vm.addSingleToCart = (item) => {
+    //
+    // }
+    //
     vm.getProductById = () => {
         return $http({
             method: 'GET',
             url: serverUrl + '/api/product/' + $stateParams.id
+        })
+    }
+    vm.getProductById2 = (id) => {
+        return $http({
+            method: 'GET',
+            url: serverUrl + '/api/product/' + id
         })
     }
 

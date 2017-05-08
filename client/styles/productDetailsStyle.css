@@ -2,3 +2,43 @@
 
     /*color: whitesmoke;*/
 /*}*/
+.card{
+    font-family: 'Inknut Antiqua', serif;
+    text-align: center;
+    background-image: url("http://az616578.vo.msecnd.net/files/2015/12/19/6358614596527738711752945771_music.jpg");
+}
+.card p{
+    color:whitesmoke;
+    background-color: #0e0e0e;
+    font-size: 1.5em;
+}
+.card h4{
+    color:whitesmoke;
+    background-color: #0e0e0e;
+    font-size: 1.5em;
+    width:auto;
+}
+img{
+    margin-left: 20vw;
+    /*margin-right: auto;*/
+}
+.button2{
+    text-align: center;
+    color: #FFF;
+    padding: 15px 20px;
+    font-family: 'OpenSansBold', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #C14800;
+    -webkit-transition: all ease 0.8s;
+    -moz-transition: all ease 0.8s;
+    transition: all ease 0.8s;
+}
+.button3{
+    margin-left: -1%;
+}

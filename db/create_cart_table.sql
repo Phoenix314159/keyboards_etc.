@@ -3,5 +3,4 @@
      customerId int references Users(ID),
      productId int references Products(ID),
      quantity int
-
 );
