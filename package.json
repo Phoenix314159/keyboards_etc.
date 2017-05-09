@@ -4,8 +4,7 @@
   "description": "Material Design for Bootstrap",
   "main": "mainCtrl.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "SET NODE_ENV=test & mocha test test/mainCtrl.js"
   },
   "author": "",
   "license": "ISC",
@@ -40,6 +39,8 @@
     "req-flash": "0.0.3"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "supertest": "^3.0.0"
   }
 }

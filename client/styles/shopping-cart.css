@@ -1,12 +1,16 @@
 .message{
     text-align: center;
-    margin-top: 10%;
+    margin-top: 2%;
     padding: 1%;
+    opacity: 0.9;
+
 }
 .message1{
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5%;
     padding: 1%;
+    border: 2px solid black;
+    border-radius: 2%;
 }
 
 .image{
@@ -43,7 +47,7 @@ shipping{
     margin-top: 5%;
     border: solid 4px black;
     border-radius: 2%;
-    /*opacity: 0.9;*/
+    opacity: 0.9;
 }
 .message h3{
     padding-top: 1%;

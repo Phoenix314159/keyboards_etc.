@@ -5,8 +5,8 @@ const app = require('./server'),
         let salt = bcrypt.genSaltSync(10);
         let hash = bcrypt.hashSync(password, salt);
         return hash;
-    },
-    stripe = require("stripe")('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
+    };
+    // stripe = require("stripe")('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
 // token = request.body.stripeToken;
 module.exports = {
     getProducts: (req, res) => {

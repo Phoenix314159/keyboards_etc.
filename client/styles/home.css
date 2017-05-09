@@ -1,6 +1,21 @@
+.first{
+    height:40vh;
+    width:30vw;
+    position: relative;
+    left:4vw;
+}
+.second{
+    height:40vh;
+    width:20vw;
+    position: relative;
+    left:10vw;
+}
 .third{
-    height:99%;
-    width:99%;
+    height:40vh;
+    width:30vw;
+    position: relative;
+    left:4vw;
+
 }
 #first{
     height: 50vh;
@@ -27,7 +42,7 @@ h4{
 
 }
 .back{
-    background-color: white;
+    background-color:whitesmoke;
     opacity: .9;
 }
 
@@ -43,6 +58,10 @@ h4{
 .small{
     position: relative;
     right:10%;
+}
+.black{
+    color:black;
+
 }
 
 /*.image{*/
