@@ -1,56 +1,38 @@
 angular.module('ecom').component('payment', {
-
+    require: {
+        parent: '^mainComp'
+    },
     templateUrl: './views/payment.html',
 
-    controller: function () {
+    controller: function (stripe, $http, mainService, modelFactory) {
         let vm = this;
-        const stripe = Stripe('pk_test_YCIPURTU6ePqrjERaHH1AHMN'),
-            elements = stripe.elements(),
-            // card = elements.create('card'),
-            style = {
-                base: {
-                    fontSize: '16px',
-                    lineHeight: '24px',
-                },
-            };
-        const card = elements.create('card', {style});
+        vm.payment = {};
 
-        card.mount('#card-element');
-        card.addEventListener('change', ({error}) => {
-            const displayError = document.getElementById('card-errors');
-            if (error) {
-                displayError.textContent = error.message;
-            } else {
-                displayError.textContent = '';
-            }
-        });
+        vm.amount = modelFactory.getTotal();
+        console.log(vm.amount)
 
-        const form = document.getElementById('payment-form');
-        form.addEventListener('submit', async (event) => {
-            event.preventDefault();
+        vm.charge = () => {
 
-            const {token, error} = await stripe.createToken(card);
-
-            if (error) {
-                // Inform the user if there was an error
-                const errorElement = document.getElementById('card-errors');
-                errorElement.textContent = error.message;
-            } else {
-                // Send the token to your server
-                stripeTokenHandler(token);
-            }
-        });
-        const stripeTokenHandler = (token) => {
-            // Insert the token ID into the form so it gets submitted to the server
-            const form = document.getElementById('payment-form');
-            const hiddenInput = document.createElement('input');
-            hiddenInput.setAttribute('type', 'hidden');
-            hiddenInput.setAttribute('name', 'stripeToken');
-            hiddenInput.setAttribute('value', token.id);
-            form.appendChild(hiddenInput);
-
-            // Submit the form
-            form.submit();
-        }
+            console.log(vm.amount)
+            return stripe.card.createToken(vm.payment.card).then(response => {
+                console.log('token created for card ending in ', response.card.last4);
+                let payment = angular.copy(vm.payment);
+                payment.card = void 0;
+                payment.token = response.id;
+                payment.amount = vm.amount;
+                return $http.post('http://localhost:3065/api/payments', payment);  //post payment to server
+            }).then(function (payment) {
+                console.log('successfully submitted payment for $', payment.amount);
+            })
+                .catch(function (err) {
+                    if (err.type && /^Stripe/.test(err.type)) {
+                        console.log('Stripe error: ', err.message);
+                    }
+                    else {
+                        console.log('Other error occurred, possibly with your API', err.message);
+                    }
+                });
+        };
     }
 })
+

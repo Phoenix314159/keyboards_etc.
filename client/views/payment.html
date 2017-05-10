@@ -1,15 +1,65 @@
-<form action="/charge" method="post" id="payment-form">
-      <div class="form-row">
-            <label for="card-element">
-                  Credit or debit card
-            </label>
-            <div id="card-element">
-                  <!-- a Stripe Element will be inserted here. -->
-            </div>
-
-            <!-- Used to display Element errors -->
-            <div id="card-errors"></div>
-      </div>
-
-      <button>Submit Payment</button>
+<link rel="stylesheet" href="../styles/payment.css">
+<form ng-submit="$ctrl.charge()" id="payment_form">
+<div class="animated fadeIn card bord total">
+	<div class="card-block">
+		<div class="text-center">
+			<h3 class="text"> Payment Amount: <br/>{{$ctrl.amount | currency}}</h3>
+			<hr class="mt-2 mb-2">
+		</div>
+		<div class="md-form">
+			<i class="fa fa-user-plus prefix"></i>
+			<input type="text" name="name" value="" placeholder="Name" required>
+		</div>
+		<div class="md-form">
+			<i class="fa fa-credit-card fa-2x"></i>
+			<input type="text" size="20" ng-model="$ctrl.payment.card.number" placeholder="Card Number" required>
+		</div>
+		<div class="md-form">
+			<i class="fa fa-calendar fa-2x"></i>
+			<h6>Expiration Month:</h6>
+			<select class="form-control" ng-model="$ctrl.payment.card.exp_month" type="text" data-stripe="exp_month">
+				<option selected class="select-option" label="January" value="01">January</option>
+				<option class="select-option" label="February" value="02">February</option>
+				<option class="select-option" label="March" value="03">March</option>
+				<option class="select-option" label="April" value="04">April</option>
+				<option class="select-option" label="May" value="05">May</option>
+				<option class="select-option" label="June" value="06">June</option>
+				<option class="select-option" label="July" value="07">July</option>
+				<option class="select-option" label="August" value="08">August</option>
+				<option class="select-option" label="September" value="09">September</option>
+				<option class="select-option" label="October" value="10">October</option>
+				<option class="select-option" label="November" value="11">November</option>
+				<option class="select-option" label="December" value="12">December</option>
+			</select>
+		</div>
+		<div class="md-form">
+			<i class="fa fa-calendar fa-2x"></i>
+			<h6>Expiration Year:</h6>
+			<select class="input-select no-label form-control" ng-model="$ctrl.payment.card.exp_year" type="text">
+				<option class="select-option" label="2016" value="16">2016</option>
+				<option class="select-option" label="2017" value="17">2017</option>
+				<option class="select-option" label="2018" value="18">2018</option>
+				<option class="select-option" label="2019" value="19">2019</option>
+				<option class="select-option" label="2020" value="20">2020</option>
+				<option class="select-option" label="2021" value="21">2021</option>
+				<option class="select-option" label="2022" value="22">2022</option>
+				<option class="select-option" label="2023" value="23">2023</option>
+				<option class="select-option" label="2024" value="24">2024</option>
+				<option class="select-option" label="2025" value="25">2025</option>
+				<option class="select-option" label="2026" value="26">2026</option>
+				<option class="select-option" label="2027" value="27">2027</option>
+				<option class="select-option" label="2028" value="28">2028</option>
+			</select>
+		</div>
+		<div class="md-form">
+			<i class="fa fa-sort-numeric-asc fa-2x"></i>
+			<h6>Security Code</h6>
+			<input ng-model="$ctrl.payment.card.cvc" maxlength="4" placeholder="Enter Code" type="password" size="4"
+			       name="cvc">
+		</div>
+		<div class="md-form">
+			<button class="animated zoomIn btn btn-primary button5" type="submit">Submit Payment</button>
+		</div>
+	</div>
+</div>
 </form>

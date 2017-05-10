@@ -97,6 +97,4 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
             url: serverUrl + '/api/checklogin'
         })
     }
-
-
 })

@@ -4,7 +4,7 @@ angular.module('ecom').component('shoppingCart', {
         main: '^mainComp'
     },
 
-    controller: function (mainService) {
+    controller: function (mainService, modelFactory) {
         let vm = this;
         vm.showCart = false;  //cart is not initially shown if empty
         vm.showBox2 = true;
@@ -18,6 +18,9 @@ angular.module('ecom').component('shoppingCart', {
             } else {
                 vm.showBox = false;
             }
+        }
+        vm.displayTotal = () => {
+            modelFactory.displayTotal(vm.gTotal);
         }
 
         vm.message1 = 'You have no items in your cart';
@@ -61,6 +64,7 @@ angular.module('ecom').component('shoppingCart', {
                             }
                             vm.qTotal = vm.quantityTotal * 1.99;
                             vm.gTotal = vm.cartTotal + vm.qTotal;
+                            vm.displayTotal();
                         }
                     })
                 })
@@ -68,6 +72,7 @@ angular.module('ecom').component('shoppingCart', {
             vm.deleteFromCart = (cartid) => {
                 mainService.deleteFromCart(cartid).then(response => {  //deletes one item from cart
                     mainService.getCart(vm.customer.id).then(response => { //goes back to server to get cart again pertaining to customer id
+                        vm.displayTotal();
                         if (response.data.length > 0) {
                             vm.showCart = true;  //if cart isn't empty, show it and display the products in it
                             vm.products = response.data;

@@ -8,7 +8,8 @@ const express = require('express'),
     connString = config.MASSIVE_URI,
     massiveInstance = massive.connectSync({connectionString: connString}),
     cookieParser = require('cookie-parser'),
-    session = require('express-session');
+    session = require('express-session'),
+    cartCtrl = require('./cartCtrl');
 app.use(session({
     secret: config.SESSION_SECRET,
     resave: false,
@@ -47,28 +48,29 @@ app.get('/api/checklogin', log.loggedIn, (req, res) => {
 //             .expect(200);
 //     });
 // });
+let isAuthed = function (req, res, next) {
+    if (!req.isAuthenticated()) return res.status(401)
+        .send();
+    return next();
+};
+
+app.get('/api/me', isAuthed, mainCtrl.me);
 app.post('/api/login', passport.authenticate('local', {
     successRedirect: '/api/me',
     failureRedirect: '/#!/login',
     failureFlash: true
 }));
 app.get('/api/logout', function (req, res, next) {
-    console.log('logging out');
     req.logout();
     res.redirect('/');
 });
 
-
-let isAuthed = function (req, res, next) {
-    if (!req.isAuthenticated()) return res.status(401)
-        .send();
-    return next();
-};
-app.get('/api/me', isAuthed, mainCtrl.me);
 app.post('/api/newuser', mainCtrl.addUser);
 app.delete('/api/delete/:id', mainCtrl.deleteFromCart);
 app.delete('/api/deleteall', mainCtrl.deleteCart);
 app.put('/api/updatequantity', mainCtrl.updateQuantity);
+app.post('/api/payments', cartCtrl.processPayment);
+
 
 
 app.listen(3065, () => {

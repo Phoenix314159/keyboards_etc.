@@ -1,5 +1,6 @@
-angular.module('ecom', ['ui.router'])
-    .config(function ($urlRouterProvider, $stateProvider) {
+angular.module('ecom', ['ui.router', 'angular-stripe'])
+    .config(function ($urlRouterProvider, $stateProvider, stripeProvider) {
+        stripeProvider.setPublishableKey('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
         $stateProvider
             .state('home', {
                 url: '/',
@@ -37,7 +38,7 @@ angular.module('ecom', ['ui.router'])
             })
             .state('payment', {
                 url: '/payment',
-                templateUrl: '<payment></payment>',
+                template: '<payment></payment>',
                 component: 'payment'
             })
         $urlRouterProvider.otherwise('/');

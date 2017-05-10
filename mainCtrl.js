@@ -9,6 +9,8 @@ const app = require('./server'),
     // stripe = require("stripe")('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
 // token = request.body.stripeToken;
 module.exports = {
+
+
     getProducts: (req, res) => {
 
         db.get_products((err, products) => {
@@ -51,12 +53,10 @@ module.exports = {
     },
     getCart: (req, res) => {
         db.get_shopping_cart([req.params.id], (err, cart) => {
-            console.log('man')
             !err ? res.status(200).send(cart) : res.status(404).send(err);
         })
     },
     addToCart: (req, res) => {
-        console.log('yo')
         db.add_to_cart([req.body.customerId, req.body.productId, req.body.quantity], (err, cart) => {
             !err ? res.status(200).send(cart) : res.status(404).send(err);
         })
@@ -74,12 +74,9 @@ module.exports = {
         })
     },
     updateQuantity: (req, res) => {
-        console.log(req.body);
         db.update_quantity([req.body.id, req.body.quantity], (err, cart) => {
             !err ? res.status(200).send(cart) : res.status(404).send(err);
         })
     },
-    makePayment: (req, res) => {
 
-    }
 }
