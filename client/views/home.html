@@ -6,12 +6,12 @@
                         <div class="widget-wrapper">
                               <h4>Categories:</h4>
                               <br>
-                              <div class="list-group box bord">
-                                    <a ui-sref="products({type:'keyboard'})" class="list-group-item">MIDIKeyboards</a>
-                                    <a ui-sref="products({type:'software'})" class="list-group-item">Software</a>
-                                    <a ui-sref="products({type: 'headphones'})" class="list-group-item">Headphones</a>
-                                    <a ui-sref="products({type: 'djequip'})" class="list-group-item">DJ-Gear</a>
-                                    <a ui-sref="products({type: 'speakers'})" class="list-group-item">Speakers</a>
+                              <div class="list-group box bord" >
+                                    <a ui-sref="products({type:'keyboard'})" class="list-group-item"><div>MIDIKeyboards</div></a>
+                                    <a ui-sref="products({type:'software'})" class="list-group-item"><div>Software</div></a>
+                                    <a ui-sref="products({type: 'headphones'})" class="list-group-item"><div>Headphones</div></a>
+                                    <a ui-sref="products({type: 'djequip'})" class="list-group-item"><div>DJ-Gear</div></a>
+                                    <a ui-sref="products({type: 'speakers'})" class="list-group-item"><div>Speakers</div></a>
                               </div>
                         </div>
 
@@ -53,7 +53,7 @@
                                                 <li data-target="#carousel-example-1z" data-slide-to="1"></li>
                                                 <li data-target="#carousel-example-1z" data-slide-to="2"></li>
                                           </ol>
-                                          <div class="carousel-inner" role="listbox" class="allimages bord">
+                                          <div class="carousel-inner" role="listbox" class="allimages bord box34">
                                                 <!--First slide-->
                                                 <div class="carousel-item active">
                                                        <img class="first"
@@ -100,7 +100,7 @@
                                     <div class="card  wow fadeIn bord" data-wow-delay="0.2s">
                                           <div class="view overlay hm-white-slight small">
                                                 <a ui-sref="productDetails({id:{{x.id}}})"><img
-                                                        style="" ng-src="{{x.image}}" alt=""></a>
+                                                         ng-src="{{x.image}}" alt=""></a>
                                           </div>
                                           <div class="card-block">
                                                 <h4 class="card-title box" style="text-align: center">{{x.name}}</h4>

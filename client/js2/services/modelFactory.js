@@ -1,21 +1,16 @@
 angular.module('ecom').factory('modelFactory', () => {
-    let total = [];
+    let total = [],
 
-    // function empty(t) {
-    //     while (total.length > 0) {
-    //         total.pop();
-    //     }
-    //     displayTotal(t);
-    // }
+        displayTotal = t => {
+            total.push(t);
+        },
 
-    function displayTotal(t) {
-        total.push(t);
-    }
-
-    function getTotal() {
-        return total[0];
-    }
-
+        getTotal = () => {
+            while (total.length > 1) {
+                total.shift();
+            }
+            return total[0];
+        }
     return {
         displayTotal: displayTotal,
         getTotal: getTotal

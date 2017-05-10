@@ -39,15 +39,14 @@
 						</td>
 						<td class="col-sm-1 col-md-1" style="text-align: center">
 							<input type="number" class="form-control" id="exampleInputEmail1" ng-model="x.quantity"/>
-							<button class="btn btn-default" ng-click="$ctrl.updateTotal(x.cartid, x.quantity)">Update
+							<button class="btn btn-default" ng-click="$ctrl.updateTotal(x.cartid, x.quantity); $ctrl.displayTotal(x.price)">Update
 							</button>
 						</td>
 						<td class="col-sm-1 col-md-1 text-center" value="0"><strong>{{x.price | currency}}</strong></td>
-						<td class="col-sm-1 col-md-1 text-center" ng-model="$ctrl.gTotal"><strong>{{x.total |
-							currency}}</strong></td>
+						<td class="col-sm-1 col-md-1 text-center" ng-model="$ctrl.gTotal"><strong>{{x.total | currency}}</strong></td>
 						<td class="col-sm-1 col-md-1">
 							<button type="button" class="btn btn-danger"
-							        ng-click="$ctrl.deleteFromCart(x.cartid); $ctrl.updateTotal()">
+							        ng-click="$ctrl.deleteFromCart(x.cartid); $ctrl.updateTotal();$ctrl.displayTotal(x.price)">
 								<span class="glyphicon glyphicon-remove"></span> Remove
 							</button>
 						</td>

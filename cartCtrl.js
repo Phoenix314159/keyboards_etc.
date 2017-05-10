@@ -2,9 +2,6 @@ let stripeKey = require('./config.js'),
     stripe = require('stripe')(stripeKey.secretKey);
 module.exports = {
     processPayment: (req, res) => {
-  console.log('its working');
-  console.log(req.body);
-        //convert amount to pennies
         let chargeAmt = req.body.amount,
             amountArray = chargeAmt.toString().split(''),
             pennies = [];

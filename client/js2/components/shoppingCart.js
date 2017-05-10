@@ -12,7 +12,6 @@ angular.module('ecom').component('shoppingCart', {
         vm.$onInit = () => {
             vm.show = vm.main.logged();
             if (vm.show) {
-                console.log(vm.show)
                 vm.showBox = true;
                 vm.show2 = true;
             } else {
@@ -44,6 +43,7 @@ angular.module('ecom').component('shoppingCart', {
                     }
                     vm.qTotal = vm.quantityTotal * 1.99; //bind to view quantity total for shipping
                     vm.gTotal = vm.cartTotal + vm.qTotal; //bind to view total for grand total to pay
+                    vm.displayTotal();
                 }
             })
             //same as above however updates subtotal, shipping, and grand total when the update button is clicked
@@ -64,7 +64,6 @@ angular.module('ecom').component('shoppingCart', {
                             }
                             vm.qTotal = vm.quantityTotal * 1.99;
                             vm.gTotal = vm.cartTotal + vm.qTotal;
-                            vm.displayTotal();
                         }
                     })
                 })
@@ -72,7 +71,6 @@ angular.module('ecom').component('shoppingCart', {
             vm.deleteFromCart = (cartid) => {
                 mainService.deleteFromCart(cartid).then(response => {  //deletes one item from cart
                     mainService.getCart(vm.customer.id).then(response => { //goes back to server to get cart again pertaining to customer id
-                        vm.displayTotal();
                         if (response.data.length > 0) {
                             vm.showCart = true;  //if cart isn't empty, show it and display the products in it
                             vm.products = response.data;

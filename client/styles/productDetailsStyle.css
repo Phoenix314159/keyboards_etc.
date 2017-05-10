@@ -69,3 +69,6 @@ img{
 .left{
     margin-right: 2%;
 }
+.bord{
+    border: 4px solid black;
+}

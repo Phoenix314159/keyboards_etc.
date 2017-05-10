@@ -1,4 +1,4 @@
-angular.module('ecom', ['ui.router', 'angular-stripe'])
+angular.module('ecom', ['ui.router', 'angular-stripe', 'angular-parallax'])
     .config(function ($urlRouterProvider, $stateProvider, stripeProvider) {
         stripeProvider.setPublishableKey('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
         $stateProvider

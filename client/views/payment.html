@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../styles/payment.css">
-<form ng-submit="$ctrl.charge()" id="payment_form">
+<form ng-show="$ctrl.showP" ng-submit="$ctrl.charge()" id="payment_form">
 <div class="animated fadeIn card bord total">
 	<div class="card-block">
 		<div class="text-center">
@@ -58,8 +58,13 @@
 			       name="cvc">
 		</div>
 		<div class="md-form">
-			<button class="animated zoomIn btn btn-primary button5" type="submit">Submit Payment</button>
+			<button class="animated zoomIn btn btn-primary button5" type="submit" ng-click="$ctrl.show(); $ctrl.goHome()">Submit Payment</button>
 		</div>
 	</div>
 </div>
 </form>
+<div class="animated zoomIn redirect" ng-if="$ctrl.showP ? false : true">
+	<h1>Thank you for Your Payment!</h1>
+	<p>Your products will arrive in 2-3 business days.</p>
+	<h3>Redirecting In:<div class="count2" count-down2></div></h3>
+</div>

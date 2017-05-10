@@ -15,11 +15,6 @@ angular.module('ecom').component('productDetails', {
             vm.product = response.data[0];
         })
 
-        // mainService.getProductsByType(vm.id).then(response => {
-        //     vm.product2 = response.data;
-        //     console.log(response.data);
-        // })
-
         mainService.getCustomerInfo().then(response => {
             vm.customer = response.data;  //gets customer info to obtain customer id
         })

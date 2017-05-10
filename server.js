@@ -14,6 +14,7 @@ app.use(session({
     secret: config.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
+    rolling: true
 }))
 app.set('db', massiveInstance);
 let passport = require('./services/passport');

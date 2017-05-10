@@ -4,22 +4,23 @@ angular.module('ecom').component('payment', {
     },
     templateUrl: './views/payment.html',
 
-    controller: function (stripe, $http, mainService, modelFactory) {
+    controller: function (stripe, $http, mainService, modelFactory, $state, $timeout) {
         let vm = this;
         vm.payment = {};
-
         vm.amount = modelFactory.getTotal();
-        console.log(vm.amount)
-
+        vm.showP = true;
+        vm.show = () => {
+            vm.showP = false;
+        }
         vm.charge = () => {
 
-            console.log(vm.amount)
+
             return stripe.card.createToken(vm.payment.card).then(response => {
                 console.log('token created for card ending in ', response.card.last4);
                 let payment = angular.copy(vm.payment);
                 payment.card = void 0;
                 payment.token = response.id;
-                payment.amount = vm.amount;
+                payment.amount = Number(vm.amount * 100);
                 return $http.post('http://localhost:3065/api/payments', payment);  //post payment to server
             }).then(function (payment) {
                 console.log('successfully submitted payment for $', payment.amount);
@@ -33,6 +34,30 @@ angular.module('ecom').component('payment', {
                     }
                 });
         };
+        vm.goHome = () => {
+            $timeout(() => {
+                $timeout(() => {
+                    $timeout(() => {
+                        $timeout(() => {
+                            $timeout(() => {
+                                $timeout(() => {
+                                    $timeout(() => {
+                                        $timeout(() => {
+                                            $timeout(() => {
+                                                $timeout(() => {
+                                                    $state.go('home');
+                                                }, 1000)
+                                            }, 1000)
+                                        }, 1000)
+                                    }, 1000)
+                                }, 1000)
+                            }, 1000)
+                        }, 1000)
+                    }, 1000)
+                }, 1000)
+            }, 1000)
+
+        }
     }
 })
 
