@@ -4,7 +4,7 @@ img{
 
 }
 #main{
-    margin-top: -8%;
+    margin-top: -2%;
 }
 #box{
     width: 20vw;
@@ -65,4 +65,20 @@ h3{
 .gome{
     color:whitesmoke;
     font-family: 'Inknut Antiqua', serif;
+}
+.flex{
+    display: flex;
+    width:20vw;
+    justify-content: inherit;
+    position: relative;
+    right:2vw;
+}
+.button3:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.link{
+    position: relative;
+    right:5vw;
 }

@@ -14,21 +14,18 @@ change-login{
     color:white;
 }
 body{
-    background-image: url("https://images.pexels.com/photos/164938/pexels-photo-164938.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
-    height: 300%;
-    width:100%;
+    background-image: url("../js2/images/image1.jpeg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    -webkit-transform: translateZ(0) scale(1.0, 1.0);
 }
 header{
     font-family: 'Inknut Antiqua', serif;
-    display: inline-block;
+    display: flex;
+    justify-content: center;
 
-    margin-left: 20%;
-    border: 4px solid black;
-    border-radius: 2%;
 }
 
 

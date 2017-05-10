@@ -1,15 +1,16 @@
 <link rel="stylesheet" href="../styles/productsStyle.css">
-<h5 class="gome">Go Home</h5>
-<a ui-sref="home"><img class="animated fadeIn"
+<div class="link">
+
+	<a ui-sref="home"><img class="animated fadeIn"
                        src="views/image/Back.ico"
                        style="height:5.5%; width: 3.5%"/></a>
-
+</div>
 <div class="container" id="main">
 	<div class="row wow">
 		<div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" ng-repeat="x in $ctrl.products track by $index">
-			<div parallax-background parallax-ratio="0.2" class="card bord" style="max-height: 105vh">
+			<div parallax-background parallax-ratio="0.2" class="card bord" style="max-height: 115vh">
 				<div class="view overlay hm-white-slight">
-					<a ui-sref="productDetails({id:{{x.id}}})"><img class="animated fadeIn hover border" style="margin-left: 10%; margin-top: 8%; height: 50%; width: 50%" ng-src="{{x.image}}" class="" alt=""></a>
+					<a ui-sref="productDetails({id:{{x.id}}})"><img class="animated zoomIn hover border" style="margin-left: 10%; margin-top: 8%; height: 50%; width: 50%" ng-src="{{x.image}}" class="" alt=""></a>
 				</div>
 				<hr/>
 				<br/>
@@ -19,7 +20,10 @@
 					<div class="read-more">
 						<div class="button">
 							<h3 style="text-align: center">Buy now for {{x.price | currency}}</h3>
+							<div class="flex">
 							<button class="animated bounce button1" ng-class="{'btn btn-warning':!change, 'btn btn-danger':change}" ng-click="change=!change; $ctrl.addToCart(x.id);" button-d >ADD TO CART</button>
+							<a ui-sref="shoppingCart" class="animated slideInDown btn btn-primary button3"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+							</div>
 						</div>
 					</div>
 				</div>

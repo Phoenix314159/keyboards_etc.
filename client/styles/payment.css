@@ -2,11 +2,12 @@
     width:30vw;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 3%;
+    margin-top: 2%;
     padding: .5% 2% 2% 2%;
     height: 87vh;
     font-family: 'Inknut Antiqua', serif;
 }
+
 .bord{
     border: 2px solid black;
     border-radius: 2%;
@@ -41,3 +42,8 @@ i:hover{
     width: 40vw;
     font-family: 'Inknut Antiqua', serif;
 }
+.link{
+      float:left;
+    position: relative;
+    left: 20vw;
+  }
