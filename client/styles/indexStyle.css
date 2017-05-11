@@ -1,4 +1,6 @@
-
+body{
+   -webkit-animation: fadein 1.5s;
+}
 
 img {
     position: relative;

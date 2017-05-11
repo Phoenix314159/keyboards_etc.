@@ -19,7 +19,7 @@ app.use(session({
 app.set('db', massiveInstance);
 let passport = require('./services/passport');
 let corsOptions = {
-    origin: 'http://localhost:3075'
+    origin: 'http://localhost:3085'
 }
 app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/client'));
@@ -71,9 +71,9 @@ app.delete('/api/delete/:id', mainCtrl.deleteFromCart);
 app.delete('/api/deleteall', mainCtrl.deleteCart);
 app.put('/api/updatequantity', mainCtrl.updateQuantity);
 app.post('/api/payments', cartCtrl.processPayment);
-app.put('/api/total', mainCtrl.updateTotal);
-app.get('/api/total', mainCtrl.getTotal);
+// app.put('/api/total', mainCtrl.updateTotal);
+// app.get('/api/total', mainCtrl.getTotal);
 
 app.listen(config.port, () => {
-    console.log('listening on port 3075');
+    console.log('listening on port 3085');
 })

@@ -1,5 +1,5 @@
 angular.module('ecom').service('mainService', function ($http, $stateParams) {
-    let serverUrl = 'http://localhost:3075',
+    let serverUrl = 'http://localhost:3085',
         vm = this;
 
     vm.getCustomerInfo = () => {
