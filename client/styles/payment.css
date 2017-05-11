@@ -12,9 +12,7 @@
     border: 2px solid black;
     border-radius: 2%;
 }
-h6{
 
-}
 .button5{
     margin-top: 2vh;
     margin-left: 6.5vw;
@@ -43,7 +41,42 @@ i:hover{
     font-family: 'Inknut Antiqua', serif;
 }
 .link{
-      /*float:left;*/
     position: relative;
     left: 20vw;
   }
+
+@media only screen and (max-width: 1024px) {
+    .total{
+        /*margin-top: 1%;*/
+        width:45vw;
+        position: absolute;
+        left:28vw;
+        bottom:-82vh;
+    }
+}
+.redirect{
+    padding: 2%;
+    text-align: center;
+    margin-top:10%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border: solid 2px black;
+    border-radius: 2%;
+    height: auto;
+    width: 50vw;
+    font-family: 'Inknut Antiqua', serif;
+}
+.button5{
+    margin-left: 9.5vw;
+}
+@media only screen and (max-width: 768px) {
+   
+    .button5{
+        margin-right: 8.5vw;
+    }
+    .link{
+        position: relative;
+        left: 10vw;
+    }
+}

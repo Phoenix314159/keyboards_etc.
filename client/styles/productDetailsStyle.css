@@ -16,6 +16,7 @@
     color:whitesmoke;
     background-color: #0e0e0e;
     font-size: 1.2em;
+    padding: 1%;
 }
 .card h4{
     color:whitesmoke;
@@ -43,11 +44,14 @@
 
 .desc{
     padding: 1.2%;
-    border: 2px solid red;
+    /*border: 2px solid red;*/
     border-radius: 2%;
-    width:30vw;
+    width:40vw;
     margin-left:auto;
     margin-right: auto;
+}
+.dude{
+    border: solid red 4px;
 }
 
 .button2{
@@ -77,4 +81,32 @@
 }
 .left{
     margin-right: 2%;
+}
+@media only screen and (max-width: 1024px) {
+    .desc{
+        padding: 1.2%;
+        border-radius: 2%;
+        width:50vw;
+        margin-left:auto;
+        margin-right: auto;
+        font-size: .8em;
+    }
+    .card{
+        margin-top: 4%;
+    }
+    .card h4{
+        font-size: 1.1em;
+    }
+    .dude{
+        border: solid orangered 2px;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .desc{
+        font-size: .7em;
+    }
+    .card{
+        margin-top: 7%;
+    }
 }

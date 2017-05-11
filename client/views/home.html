@@ -2,7 +2,7 @@
 <div class="container">
       <div class="row">
             <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
-                  <div class="widget-wrapper">
+                  <div class="widget-wrapper top">
                         <h4>Categories:</h4>
                         <br>
                         <div class="list-group box bord">
@@ -24,7 +24,7 @@
                         </div>
                   </div>
 
-                  <div class="widget-wrapper wow fadeIn" data-wow-delay="0.4s">
+                  <div class="widget-wrapper wow fadeIn box2" data-wow-delay="0.4s">
                         <h4>Subscription form:</h4>
                         <br>
                         <div class="card bord">
@@ -108,7 +108,7 @@
                   <br>
                   <hr class="extra-margins">
                   <div class="row">
-                        <div class="col-lg-4" ng-repeat="x in $ctrl.product3">
+                        <div class="col-md-4" ng-repeat="x in $ctrl.product3">
                               <div class="card  wow fadeIn bord" data-wow-delay="0.2s">
                                     <div class="view overlay hm-white-slight small">
                                           <a ui-sref="productDetails({id:{{x.id}}})"><img class="img-responsive"
@@ -121,6 +121,56 @@
                                           <a ng-click="$ctrl.addToCart(x.id);change1=!change1;"
                                              ng-class="{'btn btn-warning':!change1, 'btn btn-danger':change1}"
                                              button-d>Buy now for <strong>{{x.price | currency}}</strong></a>
+                                    </div>
+                              </div>
+                        </div>
+                  </div>
+                  <div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s">
+                        <div class="widget-wrapper top">
+                              <h4>Categories:</h4>
+                              <br>
+                              <div class="list-group box bord">
+                                    <a ui-sref="products({type:'keyboard'})" class="list-group-item">
+                                          <div>MIDIKeyboards</div>
+                                    </a>
+                                    <a ui-sref="products({type:'software'})" class="list-group-item">
+                                          <div>Software</div>
+                                    </a>
+                                    <a ui-sref="products({type: 'headphones'})" class="list-group-item">
+                                          <div>Headphones</div>
+                                    </a>
+                                    <a ui-sref="products({type: 'djequip'})" class="list-group-item">
+                                          <div>DJ-Gear</div>
+                                    </a>
+                                    <a ui-sref="products({type: 'speakers'})" class="list-group-item">
+                                          <div>Speakers</div>
+                                    </a>
+                              </div>
+                        </div>
+
+                        <div class="widget-wrapper wow fadeIn box2" data-wow-delay="0.4s">
+                              <h4>Subscription form:</h4>
+                              <br>
+                              <div class="card bord">
+                                    <div class="card-block ">
+                                          <div class="text2">
+                                                <p><strong>Subscribe to our newsletter</strong></p>
+                                                <p>Once a week we will send you a summary of the most useful news</p>
+                                          </div>
+                                          <div class="md-form">
+                                                <i class="fa fa-user prefix"></i>
+                                                <input type="text" id="form1" class="form-control"
+                                                       ng-model="$ctrl.name">
+                                                <label for="form1">Your name</label>
+                                          </div>
+                                          <div class="md-form">
+                                                <i class="fa fa-envelope prefix"></i>
+                                                <input type="text" id="form2" class="form-control">
+                                                <label for="form2">Your email</label>
+                                          </div>
+                                          <button style="margin-left: 28%" class="btn btn-default"
+                                                  ng-click="$ctrl.subscribe()">Submit
+                                          </button>
                                     </div>
                               </div>
                         </div>

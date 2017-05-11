@@ -21,11 +21,11 @@ angular.module('ecom').component('products', {
 
             })
         }
-        vm.updateTotal = productId => {
-            mainService.updateTotal(productId).then(response => {
-
-            })
-        }
+        // vm.updateTotal = productId => {
+        //     mainService.updateTotal(productId).then(response => {
+        //
+        //     })
+        // }
 
     }
 })

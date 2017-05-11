@@ -31,10 +31,10 @@ angular.module('ecom').directive('backGround', function ($timeout, $interval) {
                     'background-repeat': 'no-repeat',
                     'height': '100%',
                     'width': '100%',
-                    'transition': '1s',
+                    'transition': '1.5s',
                     '-webkit-backface-visibility': 'hidden',
-                    '-webkit-transform': 'translateZ(0) scale(1.0, 1.0)'
-                });
+                    '-webkit-transform': 'translateZ(0) scale(1.0, 1.0)',
+                    '-webkit-animation': 'fadein 1.5s' });
             }, 7500)
         }
     }

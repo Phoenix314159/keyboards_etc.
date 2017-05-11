@@ -1,5 +1,3 @@
-update cart
-set totalprice = $1
-from cart as a
-inner join products as b
-on a.productId = b.id;
+select sum(price) from products
+join cart
+on products.id = cart.productId;

@@ -50,19 +50,24 @@ angular.module('ecom').component('shoppingCart', {
                     }
                     vm.qTotal = vm.quantityTotal * 1.99; //bind to view quantity total for shipping
                     vm.gTotal = vm.cartTotal + vm.qTotal; //bind to view total for grand total to pay
-                    vm.displayTotal();
                 }
             })
             //same as above however updates subtotal, shipping, and grand total when the update button is clicked
             vm.updateTotal = (cartid, quantity) => {
                 mainService.updateQuantity(cartid, quantity).then(response => {
+
                     mainService.getCart(vm.customer.id).then(response => {
-                        if (response.data.length > 0) {
+
+                        vm.cart = response.data;
+                        vm.cart1 = vm.cart[0].cartid;
+                        console.log(vm.cart[0]);
+                        if (vm.cart.length > 0) {
                             vm.showCart = true;
                             vm.products = response.data.map(v => {
                                 v.total = v.price * v.quantity
                                 return v;
                             });
+
                             vm.cartTotal = 0;
                             vm.quantityTotal = 0;
                             for (let i = 0; i < vm.products.length; i++) {
@@ -71,19 +76,29 @@ angular.module('ecom').component('shoppingCart', {
                             }
                             vm.qTotal = vm.quantityTotal * 1.99;
                             vm.gTotal = vm.cartTotal + vm.qTotal;
+                            vm.pId = false;
+                            if (vm.quantityTotal === 0) {
+                                vm.pId = true;
+                                // vm.deleteFromCart(vm.cart1);
+                                if(vm.cart.length === 0){
+                                    vm.showCart = false;
+                                    vm.show2 === true;
+                                }
+                            }
+                            // vm.delete2FromCart = (x) => {
+                            //     if (vm.quantityTotal === 0) {
+                            //         vm.deleteFromCart(x);
+                            //     }
+                            // }
                         }
                     })
                 })
             }
-            vm.updatePaymentTotal = (productId) => {
-                mainService.updateTotal(productId).then(response => {
-                       mainService.getTotal().then(response => {
-                           vm.total2 = response.data;
-                           modelFactory.displayTotal(vm.total2);
-                       })
-                })
+            vm.displayTotal = () => {
+                modelFactory.displayTotal(vm.gTotal);
             }
             vm.deleteFromCart = (cartid) => {
+                console.log('working');
                 mainService.deleteFromCart(cartid).then(response => {  //deletes one item from cart
                     mainService.getCart(vm.customer.id).then(response => { //goes back to server to get cart again pertaining to customer id
                         if (response.data.length > 0) {
@@ -99,6 +114,7 @@ angular.module('ecom').component('shoppingCart', {
                     })
                 })
             }
+
         });
     }
 });

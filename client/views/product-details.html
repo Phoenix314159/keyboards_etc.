@@ -1,10 +1,10 @@
 <link rel="stylesheet" href="../styles/productDetailsStyle.css">
-<div class="animated fadeIn">
+<div class="animated fadeIn dude2">
 <div class="card">
       <h4>{{$ctrl.product.name}}</h4>
       <img parallax parallax-ratio="0.5" style="height: 40%; width:30%" class="img-fluid image3" ng-src="{{$ctrl.product.image}}"  alt="">
-      <div class="card-block">
-            <p class="card-text desc">{{$ctrl.product.descr}}</p>
+      <div class="card-block desc">
+            <p class="card-text dude">{{$ctrl.product.descr}}</p>
             <a ui-sref="products({type:'allproducts'})"> <button class="animated slideInLeft btn btn-primary left">All Products</button></a>
             <a ui-sref="shoppingCart" class="animated slideInDown btn btn-info button3" id="shop"><i class="fa fa-shopping-cart"></i></a>
             <a  ng-class="{'btn btn-warning':!change, 'btn btn-danger':change}" ng-click="change=!change; $ctrl.addToCart($ctrl.product1); $ctrl.updatePaymentTotal($ctrl.product1.id)" class="animated slideInRight btn btn-primary button2" button-d>Add to Cart</a>

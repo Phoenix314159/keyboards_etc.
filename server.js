@@ -19,7 +19,7 @@ app.use(session({
 app.set('db', massiveInstance);
 let passport = require('./services/passport');
 let corsOptions = {
-    origin: 'http://localhost:3065'
+    origin: 'http://localhost:3075'
 }
 app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/client'));
@@ -75,5 +75,5 @@ app.put('/api/total', mainCtrl.updateTotal);
 app.get('/api/total', mainCtrl.getTotal);
 
 app.listen(config.port, () => {
-    console.log('listening on port 3065');
+    console.log('listening on port 3075');
 })

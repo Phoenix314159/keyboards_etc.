@@ -1,32 +1,39 @@
-.first{
-    height:40vh;
-    width:30vw;
+.first {
+    height: 40vh;
+    width: 30vw;
 }
-.second{
-    height:40vh;
+
+.second {
+    height: 40vh;
     width: 20vw;
 }
-.third{
-    height:40vh;
-    width:30vw;
+
+.third {
+    height: 40vh;
+    width: 30vw;
 }
-#first{
+
+#first {
     height: 50vh;
     width: 50vw;
 }
-.allimages{
+
+.allimages {
     display: flex;
     justify-content: center;
 }
-.title{
+
+.title {
     color: #0e0e0e;
     position: relative;
     font-size: 3em;
     font-family: 'Inknut Antiqua', serif;
     text-align: center;
     width: 30vw;
+    padding-top: 2%;
 }
-h4{
+
+h4 {
     color: whitesmoke;
     font-size: 1.5em;
     font-style: oblique;
@@ -34,40 +41,135 @@ h4{
     text-align: center;
 
 }
-.back{
-    background-color:whitesmoke;
+
+.back {
+    background-color: whitesmoke;
     opacity: .9;
 }
 
-.box{
+.box {
     font-family: 'Inknut Antiqua', serif;
     color: #1a1a1a;
     text-align: center;
+    font-size: 1.1em;
 }
-.text2{
+
+.text2 {
     text-align: center;
 }
-.bord{
+
+.bord {
     border: 4px solid black;
     border-radius: 2%;
     color: #0e0e0e;
 
 }
-.small{
+
+.small {
     position: relative;
-    right:10%;
+    right: 10%;
 }
-.black{
-    color:black;
+
+.black {
+    color: black;
 }
-.bord a div{
-    color:black;
+
+.bord a div {
+    color: black;
     text-align: center;
 
     font-size: 1.2em;
 }
-.bord a div:hover{
+
+.bord a div:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
+}
+
+@media only screen and (max-width: 1024px) {
+    .box {
+        font-size: .9em;
+    }
+
+    .bord a div {
+        color: black;
+        text-align: center;
+        font-size: .9em;
+    }
+
+    .bord a div:hover {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+
+    .title {
+        font-size: 2.2em;
+        padding-top: 2%;
+    }
+
+    .first {
+        margin-left: 4vw;
+    }
+
+    .second {
+        margin-left: 10vw;
+    }
+
+    .third {
+        margin-left: 4vw;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .box {
+        font-family: 'Inknut Antiqua', serif;
+        color: #1a1a1a;
+        text-align: center;
+        font-size: 1.1em;
+        width: 30vw;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .box2 {
+        display: none;
+
+    }
+
+    .top {
+        display: none;
+    }
+
+    .first {
+        margin-left: 14vw;
+    }
+
+    .first img {
+        width: 110%;
+    }
+
+    .second {
+        margin-left: 19vw;
+    }
+
+    .third {
+        margin-left: 14.5vw;
+    }
+
+    .box {
+        display: none;
+    }
+
+    .divider-new h2 {
+        width: 30vw;
+    }
+
+    .
+    extra-margins {
+        display: none;
+    }
+
 }

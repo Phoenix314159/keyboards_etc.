@@ -1,14 +1,14 @@
 <link rel="stylesheet" href="../styles/productsStyle.css">
 <div class="link">
 
-	<a ui-sref="home"><img class="animated fadeIn"
+	<a ui-sref="home"><img class="animated fadeIn arrow"
                        src="views/image/Back.ico"
                        style="height:5.5%; width: 3.5%"/></a>
 </div>
 <div class="container" id="main">
-	<div class="row wow">
+	<div class="row wow top">
 		<div class="col-lg-4 wow fadeIn" data-wow-delay="0.2s" ng-repeat="x in $ctrl.products track by $index">
-			<div parallax-background parallax-ratio="0.7" class="card bord" style="max-height: 115vh">
+			<div parallax-background parallax-ratio="0.7" class="card bord" style="max-height: inherit">
 				<div class="view overlay hm-white-slight">
 					<a ui-sref="productDetails({id:{{x.id}}})"><img class="animated zoomIn img-responsive hover border" style="margin-left: 10%; margin-top: 8%; height: 50%; width: 50%" ng-src="{{x.image}}" alt=""></a>
 				</div>

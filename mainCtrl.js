@@ -80,6 +80,7 @@ module.exports = {
     },
     updateTotal: (req, res) => {
         db.update_total([req.body.productId], (err, total) => {
+            console.log('yo man dude');
             !err ? res.status(200).send(total) : res.status(404).send(err);
         })
     },

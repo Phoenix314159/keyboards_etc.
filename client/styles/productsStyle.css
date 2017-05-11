@@ -89,3 +89,62 @@ h3{
     position: relative;
     right:5vw;
 }
+@media only screen and (max-width: 1024px) {
+    .button1{
+        text-align: center;
+        color: #FFF;
+        font-family: 'Inknut Antiqua', serif;
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        border-radius: 2px;
+        cursor: pointer;
+        box-shadow: inset 0 0 0 0 #C14800;
+        -webkit-transition: all ease 0.8s;
+        -moz-transition: all ease 0.8s;
+        transition: all ease 0.8s;
+        margin-left: 22%;
+        /*max-height: 6vh;*/
+    }
+    .button3:hover {
+        -webkit-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
+    }
+    .button3 i{
+        display:inline-block;
+        font-size: 40px;
+        line-height: 50px;
+        color:white;
+        width: 40px;
+        height: 50px;
+        text-align: center;
+        vertical-align: bottom;
+
+    }
+    .text2{
+        text-align: center;
+        font-family: 'Inknut Antiqua', serif;
+        font-size: .9em;
+    }
+    .text1{
+        text-align: center;
+        font-family: 'Inknut Antiqua', serif;
+        font-size: 1.1em;
+    }
+    .top{
+        margin-top: 3%;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .flex{
+        display: flex;
+        width:30vw;
+        justify-content: inherit;
+        position: relative;
+        left:22vw;
+    }
+    #main{
+
+    }
+}

@@ -10,9 +10,9 @@
 </div>
 <!-- if user is logged in and adds a product to cart, show this and hide others-->
 <div class="animated slideInDown container total" ng-show="$ctrl.showCart">
-	<div class="row">
+	<div class="row" ng-if="$ctrl.pId === true ? false : true">
 		<div class="col-sm-12 col-md-10 col-md-offset-1 move">
-			<table class="table table-hover">
+			<table class="table table-hover" >
 				<thead>
 					<tr>
 						<th>Product</th>
@@ -39,14 +39,14 @@
 						</td>
 						<td class="col-sm-1 col-md-1" style="text-align: center">
 							<input type="number" class="form-control" id="exampleInputEmail1" ng-model="x.quantity"/>
-							<button class="btn btn-secondary" ng-click="$ctrl.updateTotal(x.cartid, x.quantity); $ctrl.updatePaymentTotal(x.id)">Update
+							<button class="btn btn-secondary" ng-click="$ctrl.updateTotal(x.cartid, x.quantity); $ctrl.delete2FromCart(x.cartid); $ctrl.displayTotal();">Update
 							</button>
 						</td>
 						<td class="col-sm-1 col-md-1 text-center" value="0"><strong>{{x.price | currency}}</strong></td>
 						<td class="col-sm-1 col-md-1 text-center" ng-model="$ctrl.gTotal"><strong>{{x.total | currency}}</strong></td>
 						<td class="col-sm-1 col-md-1">
 							<button type="button" class="btn btn-danger"
-							        ng-click="$ctrl.deleteFromCart(x.cartid); $ctrl.updateTotal();$ctrl.displayTotal()">
+							        ng-click="$ctrl.deleteFromCart(x.cartid); $ctrl.updateTotal();$ctrl.displayTotal();">
 								<span class="glyphicon glyphicon-remove"></span> Remove
 							</button>
 						</td>
@@ -84,7 +84,7 @@
 							</button>
 						</td>
 						<td>
-							<form ng-click="$ctrl.displayTotal()">
+							<form ng-click="$ctrl.updatePaymentTotal(x.id);$ctrl.displayTotal();">
 								<a ui-sref="payment">
 									<button type="submit" class="btn btn-success">
 										Checkout <span class="glyphicon glyphicon-play"></span>
