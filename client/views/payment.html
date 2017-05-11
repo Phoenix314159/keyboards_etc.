@@ -9,7 +9,7 @@
 <div class="animated fadeIn card bord total">
 	<div class="card-block">
 		<div class="text-center">
-			<h3 class="text"> Payment Amount: <br/>{{$ctrl.amount | currency}}</h3>
+			<h3 > Payment Amount: <br/>{{$ctrl.amount | currency}}</h3>
 			<hr class="mt-2 mb-2">
 		</div>
 		<div class="md-form">
@@ -64,7 +64,7 @@
 			       name="cvc">
 		</div>
 		<div class="md-form">
-			<button class="animated zoomIn btn btn-primary button5" type="submit" ng-click="$ctrl.show(); $ctrl.goHome()">Submit Payment</button>
+			<button class="animated zoomIn btn btn-primary button5" type="submit" ng-click="$ctrl.show(); $ctrl.goHome(); $ctrl.getTotal()">Submit Payment</button>
 		</div>
 	</div>
 </div>

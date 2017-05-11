@@ -14,13 +14,12 @@ angular.module('ecom').component('payment', {
         }
         vm.charge = () => {
 
-
             return stripe.card.createToken(vm.payment.card).then(response => {
                 console.log('token created for card ending in ', response.card.last4);
                 let payment = angular.copy(vm.payment);
                 payment.card = void 0;
                 payment.token = response.id;
-                payment.amount = Number(vm.amount * 100);
+                payment.amount = Number(vm.amount);
                 return $http.post('http://localhost:3065/api/payments', payment);  //post payment to server
             }).then(function (payment) {
                 console.log('successfully submitted payment for $', payment.amount);
@@ -34,6 +33,7 @@ angular.module('ecom').component('payment', {
                     }
                 });
         };
+
         vm.goHome = () => {
             $timeout(() => {
                 $timeout(() => {

@@ -12,7 +12,7 @@ angular.module('ecom').directive('backGround', function ($timeout, $interval) {
                 './js2/images/image7.jpg',
                 './js2/images/image8.jpg',
                 './js2/images/image9.jpg',
-                './js2/images/image10.jpg',
+                './js2/images/image10.jpeg',
                 './js2/images/image1.jpeg'
             ];
             let i = -1;
@@ -31,12 +31,11 @@ angular.module('ecom').directive('backGround', function ($timeout, $interval) {
                     'background-repeat': 'no-repeat',
                     'height': '100%',
                     'width': '100%',
-                    'transition': '.7s',
-                    // '-webkit-transition': 'opacity 3s ease-in-out',
+                    'transition': '1s',
                     '-webkit-backface-visibility': 'hidden',
                     '-webkit-transform': 'translateZ(0) scale(1.0, 1.0)'
                 });
-            }, 5500)
+            }, 7500)
         }
     }
 })

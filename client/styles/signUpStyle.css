@@ -1,9 +1,7 @@
 .card{
     width:30vw;
     height: 70vh;
-    position: absolute;
-    left: 35%;
-    top:10%;
+    margin-left: 35vw;
 }
 .redirect{
     padding-top: 2%;

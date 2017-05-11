@@ -8,7 +8,6 @@ angular.module('ecom').component('login', {
 
         vm.login = () => {
             mainService.login(vm.username, vm.password).then(response => {  //login user
-                console.log(response);
                 mainService.deleteAllFromCart().then(response => {  //delete all products from previous cart
                 })
                 mainService.getCustomerInfo().then(response => {  //get customers first name

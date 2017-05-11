@@ -7,7 +7,6 @@ angular.module('ecom').directive('fade', function () {
                     'transition': '.750s',
                     'box-shadow': '0 0 0 0 rgba(0,0,0,0)',
                     'opacity':'0'
-
                 });
             })
             elem.mouseenter(() => {

@@ -11,7 +11,6 @@ angular.module('ecom').component('mainComp', {
             })
         }
         vm.checkLogin();
-
         vm.logged = () => {
             if (vm.user) {
                 return true;

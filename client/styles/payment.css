@@ -43,7 +43,7 @@ i:hover{
     font-family: 'Inknut Antiqua', serif;
 }
 .link{
-      float:left;
+      /*float:left;*/
     position: relative;
     left: 20vw;
   }

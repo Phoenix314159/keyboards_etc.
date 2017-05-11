@@ -42,10 +42,11 @@ h4{
 .box{
     font-family: 'Inknut Antiqua', serif;
     color: #1a1a1a;
+    text-align: center;
 }
-/*.box34{*/
-    /*height: 50vh;*/
-/*}*/
+.text2{
+    text-align: center;
+}
 .bord{
     border: 4px solid black;
     border-radius: 2%;
@@ -62,12 +63,11 @@ h4{
 .bord a div{
     color:black;
     text-align: center;
-    margin-left: 18%;
-    font-size: 25px;
+
+    font-size: 1.2em;
 }
 .bord a div:hover{
-    -webkit-transform: scale(1.3);
-    -ms-transform: scale(1.3);
-    transform: scale(1.3);
-
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
 }

@@ -6,7 +6,7 @@ const app = require('./server'),
         let hash = bcrypt.hashSync(password, salt);
         return hash;
     };
-    // stripe = require("stripe")('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
+// stripe = require("stripe")('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
 // token = request.body.stripeToken;
 module.exports = {
 
@@ -76,6 +76,16 @@ module.exports = {
     updateQuantity: (req, res) => {
         db.update_quantity([req.body.id, req.body.quantity], (err, cart) => {
             !err ? res.status(200).send(cart) : res.status(404).send(err);
+        })
+    },
+    updateTotal: (req, res) => {
+        db.update_total([req.body.productId], (err, total) => {
+            !err ? res.status(200).send(total) : res.status(404).send(err);
+        })
+    },
+    getTotal: (req, res) => {
+        db.get_total((err, total) => {
+            !err ? res.status(200).send(total) : res.status(404).send(err);
         })
     },
 

@@ -16,9 +16,16 @@ angular.module('ecom').component('products', {
         };
         vm.getProductsByType();
 
-        vm.addToCart = (productId) => {  //adds product to cart dependent on customer id
+        vm.addToCart = productId => {  //adds product to cart dependent on customer id
             mainService.addToCart(vm.customer.id, productId, 1).then(response => {
+
             })
         }
+        vm.updateTotal = productId => {
+            mainService.updateTotal(productId).then(response => {
+
+            })
+        }
+
     }
 })

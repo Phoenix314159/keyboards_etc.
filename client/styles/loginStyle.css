@@ -1,9 +1,7 @@
 .card{
     width:30vw;
     height: 50vh;
-    position: absolute;
-    left: 35%;
-    top:10%;
+    margin-left: 35vw;
 }
 .card-block{
     width:30vw;
@@ -34,4 +32,8 @@ main{
 }
 .count{
     font-size: 50px;
+}
+.center{
+
+    /*margin-left: 30vw;*/
 }

@@ -1,0 +1,1 @@
+select distinct totalprice from cart;
