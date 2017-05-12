@@ -7,6 +7,11 @@
     height: 87vh;
     font-family: 'Inknut Antiqua', serif;
 }
+.flex1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .bord{
     border: 2px solid black;
@@ -14,8 +19,9 @@
 }
 
 .button5{
-    margin-top: 2vh;
-    margin-left: 6.5vw;
+    margin-top: 5vh;
+    margin-left: auto;
+    margin-right: auto;
 }
 .button5:hover{
     -webkit-transform: scale(1.2);
@@ -47,11 +53,9 @@ i:hover{
 
 @media only screen and (max-width: 1024px) {
     .total{
-        /*margin-top: 1%;*/
         width:45vw;
-        position: absolute;
-        left:28vw;
-        bottom:-82vh;
+        position: inherit;
+
     }
 }
 .redirect{
@@ -67,16 +71,26 @@ i:hover{
     width: 50vw;
     font-family: 'Inknut Antiqua', serif;
 }
-.button5{
-    margin-left: 9.5vw;
-}
-@media only screen and (max-width: 768px) {
 
-    .button5{
-        margin-right: 8.5vw;
+@media only screen and (max-width: 768px) {
+    .total{
+        width:50vw;
+        position: inherit;
     }
-    .link{
-        position: relative;
-        left: 10vw;
+}
+@media only screen and (max-width: 375px) {
+    .total{
+        width:70vw;
+        position: inherit;
     }
+    .flex1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .redirect{
+        padding: 5%;
+        width:60vw;
+    }
+
 }

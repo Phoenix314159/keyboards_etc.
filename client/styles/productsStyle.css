@@ -1,20 +1,25 @@
-img4{
+img4 {
     height: 30%;
     width: 30%;
 }
 
-#main{
-    margin-top: -1%;
+#main {
+    margin-top: 3%;
+    display: flex;
+    align-items: center;
 }
-#box{
+
+#box {
     width: 20vw;
 }
-.border{
+
+.border {
     border: 3px solid black;
     border-radius: 2%;
-    padding:1%;
+    padding: 1%;
 }
-.button1{
+
+.button1 {
 
     text-align: center;
     color: #FFF;
@@ -33,63 +38,79 @@ img4{
     transition: all ease 0.8s;
     margin-left: 22%;
 }
+
 .button1:hover {
     box-shadow: inset 0 100px 0 0 #C14800;
 }
-.card:hover{
+
+.card:hover {
     background-color: whitesmoke;
 }
-.hover hover{
+
+.hover hover {
     background-color: #8fcafe;
     -webkit-transform: scale(1.3);
     -ms-transform: scale(1.3);
     transform: scale(1.3);
 }
-main{
+
+main {
     display: none;
 }
-.text1{
+
+.text1 {
     text-align: center;
     font-family: 'Inknut Antiqua', serif;
     font-size: 1.4em;
 }
-.text2{
+
+.text2 {
     text-align: center;
     font-family: 'Inknut Antiqua', serif;
     font-size: 1.1em;
 }
-h3{
+
+h3 {
     font-family: 'Inknut Antiqua', serif;
 }
-.bord{
+
+.bord {
     border: 4px solid black;
     border-radius: 2%;
 }
-.bord2{
+
+.bord2 {
     border: 2px solid black;
 }
-.gome{
-    color:whitesmoke;
+
+.gome {
+    color: whitesmoke;
     font-family: 'Inknut Antiqua', serif;
 }
-.flex{
+
+.flex {
     display: flex;
-    width:20vw;
+    width: 20vw;
     justify-content: inherit;
     position: relative;
-    right:2vw;
+    right: 2vw;
 }
+
 .button3:hover {
     -webkit-transform: scale(1.2);
     -ms-transform: scale(1.2);
     transform: scale(1.2);
 }
-.link{
-    position: relative;
-    right:5vw;
-}
+
+
+
 @media only screen and (max-width: 1024px) {
-    .button1{
+    #main {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .button1 {
         text-align: center;
         color: #FFF;
         font-family: 'Inknut Antiqua', serif;
@@ -105,52 +126,70 @@ h3{
         margin-left: 22%;
         /*max-height: 6vh;*/
     }
+
     .button3:hover {
         -webkit-transform: scale(1.2);
         -ms-transform: scale(1.2);
         transform: scale(1.2);
     }
-    .button3 i{
-        display:inline-block;
+
+    .button3 i {
+        display: inline-block;
         font-size: 40px;
         line-height: 50px;
-        color:white;
+        color: white;
         width: 40px;
         height: 50px;
         text-align: center;
         vertical-align: bottom;
 
     }
-    .text2{
+
+    .text2 {
         text-align: center;
         font-family: 'Inknut Antiqua', serif;
         font-size: .9em;
     }
-    .text1{
+
+    .text1 {
         text-align: center;
         font-family: 'Inknut Antiqua', serif;
         font-size: 1.1em;
     }
-    .top{
+
+    .top {
         margin-top: 3%;
     }
 }
+
 @media only screen and (max-width: 768px) {
-    .flex{
+    .flex {
         display: flex;
-        width:30vw;
+        width: 30vw;
         justify-content: inherit;
         position: relative;
-        left:22vw;
+        left: 22vw;
     }
-    #main{
 
-    }
+
 }
+
 @media only screen and (max-width: 375px) {
-    .arrow{
-        height:15vh;
+    #main {
+        margin-right: 2vw;
+    }
+
+    .arrow {
+        height: 15vh;
         width: 15vw;
+    }
+
+    .button {
+        margin-right: 0vw;
+    }
+
+    .flex {
+        margin-left: -19vw;
     }
 
 }

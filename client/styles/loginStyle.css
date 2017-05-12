@@ -26,6 +26,10 @@ main{
     height: auto;
     width: 40vw;
     font-family: 'Inknut Antiqua', serif;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    opacity: 0.9;
+
 }
 .text{
     font-family: 'Inknut Antiqua', serif;
@@ -59,7 +63,7 @@ main{
         border: solid 2px black;
         border-radius: 2%;
         height: auto;
-        width: 50vw;
+        width: 70vw;
         font-family: 'Inknut Antiqua', serif;
     }
 }
@@ -67,7 +71,7 @@ main{
     .card{
         width:45vw;
         margin-left: 28vw;
-        margin-top: 15%;
+        margin-top: 7%;
     }
     .button1{
         margin-left: 13.5vw;
@@ -80,6 +84,19 @@ main{
         position: absolute;
         left: 20vw;
     }
+    .redirect{
+        padding: 1.5%;
+        text-align: center;
+        margin-top:10%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: whitesmoke;
+        border: solid 2px black;
+        border-radius: 2%;
+        height: auto;
+        width: 80vw;
+        font-family: 'Inknut Antiqua', serif;
+    }
 
 }
 @media only screen and (max-width: 375px) {
@@ -91,5 +108,12 @@ main{
     }
     .card-block{
         width:70vw;
+    }
+    .redirect{
+        width:90vw;
+        height: 30vh;
+    }
+    .count{
+        margin-top: 10%;
     }
 }

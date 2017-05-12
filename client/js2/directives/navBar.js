@@ -1,13 +1,7 @@
-<header>
-      <nav-bar fade></nav-bar>
-      <nav class="navbar navbar-toggleable-md navbar-dark" fade>
-            <div class="container">
-                  <button class="navbar-toggler navbar-toggler-right button56" type="button" data-toggle="collapse"
-                          data-target="#navbarNav1" aria-controls="navbarNav1" aria-expanded="false"
-                          aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                  </button>
-                  <div class="collapse navbar-collapse" id="navbarNav1">
+angular.module('ecom').directive('navBar', function () {
+   return{
+       restrict: 'E',
+       template: `<div id="navbarNav1">
                         <ul class="navbar-nav mr-auto waves-effect waves-light" style="width:auto">
                               <li class="nav-item">
                                     <a class="nav-link" ui-sref="home">Home</a>
@@ -25,9 +19,6 @@
                               <a class="animated fadeIn nav-link" ui-sref="signup" ng-hide="main.user">Sign-Up</a>
                               <a class="animated fadeIn nav-link" ng-click="main.logout()" ng-show="main.user">Logout</a>
                         </form>
-                  </div>
-            </div>
-      </nav>
-</header>
-
-<ui-view></ui-view>
+                  </div>`
+   }
+});

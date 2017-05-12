@@ -1,10 +1,5 @@
 <link rel="stylesheet" href="../styles/payment.css">
-<!--<div class="link">-->
 
-	<a ui-sref="shoppingCart"><img class="animated fadeIn link"
-	                       src="views/image/Back.ico"
-	                       style="height:3.5%; width: 3.5%"/></a>
-<!--</div>-->
 <form ng-show="$ctrl.showP" ng-submit="$ctrl.charge()" id="payment_form">
 <div class="animated fadeIn card bord total">
 	<div class="card-block">
@@ -63,7 +58,7 @@
 			<input ng-model="$ctrl.payment.card.cvc" maxlength="4" placeholder="Enter Code" type="password" size="4"
 			       name="cvc">
 		</div>
-		<div class="md-form">
+		<div class="md-form flex1">
 			<button class="animated zoomIn btn btn-primary button5" type="submit" ng-click="$ctrl.show(); $ctrl.goHome(); $ctrl.getTotal()">Submit Payment</button>
 		</div>
 	</div>
