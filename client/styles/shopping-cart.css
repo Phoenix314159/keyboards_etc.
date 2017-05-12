@@ -1,71 +1,71 @@
-.message{
+.message {
     text-align: center;
     margin-top: 2%;
-    padding: 2%;
+    display: flex;
+    align-items: center;
     opacity: 0.9;
 
 }
-.message1{
-    text-align: center;
-    margin-top: 5%;
-    padding: 1%;
-    border: 2px solid black;
-    border-radius: 2%;
-}
-
-.image{
+.image {
     display: none;
 }
-shipping{
+
+shipping {
     font-size: 2em;
     position: absolute;
     bottom: 15%;
-    left:24%;
+    left: 24%;
 }
-main{
+
+main {
     display: none;
 }
-shipping{
+
+shipping {
     padding: 5%;
     border: 4px solid black;
     border-radius: 2%;
     position: absolute;
     left: 2vw;
-    bottom:6vh;
+    bottom: 6vh;
     font-family: 'Anton', sans-serif;
     font-size: 50px;
     animation-name: backswitch;
     animation-duration: 30s;
     animation-iteration-count: infinite;
 }
-.move{
+
+.move {
     margin-left: 8%;
     font-family: 'Inknut Antiqua', serif;
 }
-#desc{
+
+#desc {
     color: #0e0e0e;
     font-family: 'Inknut Antiqua', serif;
+    font-size: 1.5em;
 }
-.total{
+
+.total {
     background-color: #9a9a9a;
     margin-top: 5%;
     border: solid 4px black;
     border-radius: 2%;
     opacity: 0.9;
 }
-.message h3{
-    padding-top: 1%;
-    text-align: center;
-    margin-top:10%;
+
+.message h3 {
+    padding: 2%;
+    margin-top: 10%;
     margin-left: auto;
     margin-right: auto;
     background-color: whitesmoke;
     border: solid 2px black;
     border-radius: 2%;
-    height: 9vh;
     width: 40vw;
     font-family: 'Inknut Antiqua', serif;
 }
+
 @keyframes backswitch {
     0% {
         background-color: aquamarine;
@@ -84,29 +84,73 @@ shipping{
     }
 
 }
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1024px){
     .message{
         padding: 2%;
-        width: 40vw;
+    }
+    .message h3{
+        width:60vw;
+    }
+    #desc {
+        color: #0e0e0e;
+        font-family: 'Inknut Antiqua', serif;
+        font-size: .8em;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .message {
+        padding: 2%;
+        width: 70vw;
         position: relative;
-        left:29vw;
+        left: 16.5vw;
         opacity: 0.9;
     }
-    button{
+    .message h3{
+    font-size: 1.2em;
+        width: 60vw;
+
+     }
+    button .navbar-toggler{
+        visibility: hidden;
+    }
+    nav {
+        width:70vw;
+        height: 5vh;
+    }
+
+
+
+    button {
         margin-right: 10vw;
     }
-    shipping{
+
+    shipping {
         height: 16vh;
         width: 20vw;
         font-size: 18px;
         padding-top: -5%;
-    }
-    #desc{
-        display: none;
-    }
-    .table{
-        position: relative;
-        right:5vw;
+
     }
 
+    #desc {
+        display: none;
+    }
+
+    .table {
+        position: relative;
+        right: 5vw;
+    }
+
+}
+@media only screen and (max-width: 375px) {
+    .message h3{
+        font-size: 1.1em;
+        width: 80vw;
+    }
+
+    .message{
+        margin-right: auto;
+        margin-left: -2.5vw;
+    }
 }

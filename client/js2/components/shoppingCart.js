@@ -18,16 +18,6 @@ angular.module('ecom').component('shoppingCart', {
                 vm.showBox = false;
             }
         }
-        // vm.displayTotal = () => {
-        //     mainService.updateTotal(Math.round(vm.gTotal * 100)).then(response => {
-        //         mainService.getTotal().then(response => {
-        //             vm.amount = response.data;
-        //             console.log(response.data);
-        //             modelFactory.displayTotal(vm.amount);
-        //         })
-        //     })
-        // }
-
 
         vm.message1 = 'You have no items in your cart';
         vm.message2 = 'Please log in to add items to your cart'

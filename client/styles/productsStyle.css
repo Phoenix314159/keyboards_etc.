@@ -1,7 +1,6 @@
-img{
-    height: 100%;
-    width: 100%;
-
+img4{
+    height: 30%;
+    width: 30%;
 }
 
 #main{
@@ -147,4 +146,11 @@ h3{
     #main{
 
     }
+}
+@media only screen and (max-width: 375px) {
+    .arrow{
+        height:15vh;
+        width: 15vw;
+    }
+
 }

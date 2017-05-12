@@ -1,101 +1,117 @@
 <link rel="stylesheet" href="../styles/shopping-cart.css">
 
 <!-- if user is logged in but has no products in cart show this and hide others-->
-<div class="animated zoomIn message" ng-if="$ctrl.show2">
-	<h3>{{$ctrl.message1}}</h3>
+<div class="flex">
+      <div class="animated zoomIn message" ng-if="$ctrl.show2">
+            <h3>{{$ctrl.message1}}</h3>
+      </div>
 </div>
 <!-- if user is not logged in show this and hide others-->
-<div class="animated zoomIn message" ng-hide="$ctrl.showBox">
-	<h3>{{$ctrl.message2}}</h3>
+<div class="flex">
+      <div class="animated zoomIn message" ng-hide="$ctrl.showBox">
+            <h3>{{$ctrl.message2}}</h3>
+      </div>
 </div>
+
 <!-- if user is logged in and adds a product to cart, show this and hide others-->
 <div class="animated slideInDown container total" ng-show="$ctrl.showCart">
-	<div class="row" ng-if="$ctrl.pId === true ? false : true">
-		<div class="col-sm-12 col-md-10 col-md-offset-1 move">
-			<table class="table table-hover" >
-				<thead>
-					<tr>
-						<th>Product</th>
-						<th>Quantity</th>
-						<th class="text-center">Price</th>
-						<th class="text-center">Total</th>
-						<th> </th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="x in $ctrl.products">
-						<td class="col-sm-8 col-md-6">
-							<div class="media">
-								<a class="thumbnail pull-left" ui-sref="productDetails({id:{{x.id}}})"> <img
-										class="img-fluid" ng-src="{{x.image}}"
-										style="width: 50px; height: 50px;"> </a>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading" id="desc"
-								    style="font-size: 17px; margin-top: 4%; color: #0e0e0e;font-family: 'Inknut Antiqua', serif;">
-									<a ui-sref="productDetails({id:{{x.id}}})">{{x.name}}</a></h4>
-								<span>Status: </span><span class="text-success"><strong>In Stock</strong></span>
-							</div>
-						</td>
-						<td class="col-sm-1 col-md-1" style="text-align: center">
-							<input type="number" class="form-control" id="exampleInputEmail1" ng-model="x.quantity"/>
-							<button class="btn btn-secondary" ng-click="$ctrl.updateTotal(x.cartid, x.quantity); $ctrl.delete2FromCart(x.cartid); $ctrl.displayTotal();">Update
-							</button>
-						</td>
-						<td class="col-sm-1 col-md-1 text-center" value="0"><strong>{{x.price | currency}}</strong></td>
-						<td class="col-sm-1 col-md-1 text-center" ng-model="$ctrl.gTotal"><strong>{{x.total | currency}}</strong></td>
-						<td class="col-sm-1 col-md-1">
-							<button type="button" class="btn btn-danger"
-							        ng-click="$ctrl.deleteFromCart(x.cartid); $ctrl.updateTotal();$ctrl.displayTotal();">
-								<span class="glyphicon glyphicon-remove"></span> Remove
-							</button>
-						</td>
-					</tr>
+      <div class="row" ng-if="$ctrl.pId === true ? false : true">
+            <div class="col-sm-12 col-md-10 col-md-offset-1 move">
+                  <table class="table table-hover">
+                        <thead>
+                              <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th class="text-center">Price</th>
+                                    <th class="text-center">Total</th>
+                                    <th> </th>
+                              </tr>
+                        </thead>
+                        <tbody>
+                              <tr ng-repeat="x in $ctrl.products">
+                                    <td class="col-sm-8 col-md-6">
+                                          <div class="media">
+                                                <a class="thumbnail pull-left" ui-sref="productDetails({id:{{x.id}}})">
+                                                      <img
+                                                              class="img-fluid" ng-src="{{x.image}}"
+                                                              style="width: 50px; height: 50px;"> </a>
+                                          </div>
+                                          <div class="media-body">
+                                                <h4 class="media-heading" id="desc"
+                                                    style=" margin-top: 4%; color: #0e0e0e;font-family: 'Inknut Antiqua', serif;">
+                                                      <a ui-sref="productDetails({id:{{x.id}}})">{{x.name}}</a></h4>
+                                                <span>Status: </span><span
+                                                  class="text-success"><strong>In Stock</strong></span>
+                                          </div>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1" style="text-align: center">
+                                          <input type="number" class="form-control" id="exampleInputEmail1"
+                                                 ng-model="x.quantity"/>
+                                          <button class="btn btn-secondary"
+                                                  ng-click="$ctrl.updateTotal(x.cartid, x.quantity); $ctrl.delete2FromCart(x.cartid); $ctrl.displayTotal();">
+                                                Update
+                                          </button>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1 text-center" value="0"><strong>{{x.price |
+                                                                                                currency}}</strong></td>
+                                    <td class="col-sm-1 col-md-1 text-center" ng-model="$ctrl.gTotal"><strong>{{x.total
+                                                                                                              |
+                                                                                                              currency}}</strong>
+                                    </td>
+                                    <td class="col-sm-1 col-md-1">
+                                          <button type="button" class="btn btn-danger"
+                                                  ng-click="$ctrl.deleteFromCart(x.cartid); $ctrl.updateTotal();$ctrl.displayTotal();">
+                                                <span class="glyphicon glyphicon-remove"></span> Remove
+                                          </button>
+                                    </td>
+                              </tr>
 
-					<td>  </td>
-					<td>  </td>
-					<td>  </td>
-					<td><h5>Subtotal</h5></td>
-					<td class="text-right"><h5><strong>{{$ctrl.cartTotal | currency}}</strong></h5></td>
-					</tr>
-					<tr>
-						<td>  </td>
-						<td>  </td>
-						<td>  </td>
-						<td><h5>Estimated shipping</h5></td>
-						<td class="text-right"><h5><strong>{{$ctrl.qTotal | currency}}</strong></h5></td>
-					</tr>
-					<tr>
-						<td>  </td>
-						<td>  </td>
-						<td>  </td>
-						<td><h3>Total</h3></td>
-						<td class="text-right"><h3><strong>{{$ctrl.gTotal | currency}}</strong></h3></td>
-					</tr>
-					<shipping class=""></shipping>
-					<tr>
+                              <td>  </td>
+                              <td>  </td>
+                              <td>  </td>
+                              <td><h5>Subtotal</h5></td>
+                              <td class="text-right"><h5><strong>{{$ctrl.cartTotal | currency}}</strong></h5></td>
+                              </tr>
+                              <tr>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td><h5>Estimated shipping</h5></td>
+                                    <td class="text-right"><h5><strong>{{$ctrl.qTotal | currency}}</strong></h5></td>
+                              </tr>
+                              <tr>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td><h3>Total</h3></td>
+                                    <td class="text-right"><h3><strong>{{$ctrl.gTotal | currency}}</strong></h3></td>
+                              </tr>
+                              <shipping class=""></shipping>
+                              <tr>
 
-						<td>  </td>
-						<td>  </td>
-						<td>  </td>
-						<td>
-							<button ui-sref="products({type:'allproducts'})" type="button" class="btn btn-default">
-								<span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
-							</button>
-						</td>
-						<td>
-							<form ng-click="$ctrl.updatePaymentTotal(x.id);$ctrl.displayTotal();">
-								<a ui-sref="payment">
-									<button type="submit" class="btn btn-success">
-										Checkout <span class="glyphicon glyphicon-play"></span>
-									</button>
-								</a>
-							</form>
-						</td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>  </td>
+                                    <td>
+                                          <button ui-sref="products({type:'allproducts'})" type="button"
+                                                  class="btn btn-default">
+                                                <span class="glyphicon glyphicon-shopping-cart"></span> Continue
+                                                                                                        Shopping
+                                          </button>
+                                    </td>
+                                    <td>
+                                          <form ng-click="$ctrl.updatePaymentTotal(x.id);$ctrl.displayTotal();">
+                                                <a ui-sref="payment">
+                                                      <button type="submit" class="btn btn-success">
+                                                            Checkout <span class="glyphicon glyphicon-play"></span>
+                                                      </button>
+                                                </a>
+                                          </form>
+                                    </td>
 
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
+                              </tr>
+                        </tbody>
+                  </table>
+            </div>
+      </div>
 </div>

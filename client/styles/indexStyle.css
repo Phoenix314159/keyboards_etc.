@@ -2,11 +2,11 @@ body{
    -webkit-animation: fadein 1.5s;
 }
 
-img {
-    position: relative;
-    left:15%;
-    margin-top:2%;
-}
+/*img {*/
+    /*position: relative;*/
+    /*left:15%;*/
+    /*margin-top:2%;*/
+/*}*/
 h5{
     position: relative;
     left:14%;
@@ -50,11 +50,15 @@ header a:hover {
     }
     nav{
         margin-top: 1%;
-        width: 30vw;
-        height: 15vh;
+        /*width: 30vw;*/
+        /*height: 15vh;*/
         margin-right: 68vw ;
 
         font-size: .8em;
+    }
+    .head{
+        display: flex;
+        justify-content: space-around;
     }
 }
 

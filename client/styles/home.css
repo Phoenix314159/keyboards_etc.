@@ -1,16 +1,36 @@
 .first {
     height: 40vh;
     width: 30vw;
+    margin: 0 auto;
+
+}
+
+.allimages {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 .second {
     height: 40vh;
     width: 20vw;
+    margin-left: 9vw;
 }
 
 .third {
     height: 40vh;
     width: 30vw;
+    margin-left: 2.7vw;
+
+}
+
+.bottom {
+    display: none;
+}
+
+.single {
+    margin-left: 2vw;
+    margin-top: 1vh;
 }
 
 #first {
@@ -67,7 +87,7 @@ h4 {
 
 .small {
     position: relative;
-    right: 10%;
+    right: 5%;
 }
 
 .black {
@@ -92,9 +112,19 @@ h4 {
         font-size: .9em;
     }
 
+    .first {
+        margin-left: 12vw;
+    }
+
+    .second {
+        margin: 0 auto;
+    }
+    .third {
+        margin-left: 13vw;
+    }
+
     .bord a div {
         color: black;
-        text-align: center;
         font-size: .9em;
     }
 
@@ -109,17 +139,6 @@ h4 {
         padding-top: 2%;
     }
 
-    .first {
-        margin-left: 4vw;
-    }
-
-    .second {
-        margin-left: 10vw;
-    }
-
-    .third {
-        margin-left: 4vw;
-    }
 
 }
 
@@ -144,19 +163,15 @@ h4 {
     }
 
     .first {
-        margin-left: 14vw;
-    }
-
-    .first img {
-        width: 110%;
+        margin-left: 27vw;
     }
 
     .second {
-        margin-left: 19vw;
+        margin-left: 31vw;
     }
 
     .third {
-        margin-left: 14.5vw;
+        margin-left: 26.5vw;
     }
 
     .box {
@@ -164,7 +179,7 @@ h4 {
     }
 
     .divider-new h2 {
-        width: 30vw;
+        width: 66vw;
     }
 
     .

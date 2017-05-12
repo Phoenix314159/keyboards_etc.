@@ -38,7 +38,13 @@
     border-radius: 2%;
     padding: .5%;
     background-color: transparent;
-    margin-left: 13vw;
+    margin-left: auto;
+    margin-right: auto;
+    height: 50%;
+    width: 50%;
+    /*position: relative;*/
+    /*left:15%;*/
+    /*margin-top:2%;*/
 
 }
 
