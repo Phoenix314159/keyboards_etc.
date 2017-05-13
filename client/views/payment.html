@@ -1,6 +1,6 @@
 <link rel="stylesheet" href="../styles/payment.css">
 
-<form ng-show="$ctrl.showP" ng-submit="$ctrl.charge()" id="payment_form">
+<form ng-show="$ctrl.showP" name="myForm" ng-submit="$ctrl.charge()" id="payment_form">
 <div class="animated fadeIn card bord total">
 	<div class="card-block">
 		<div class="text-center">
@@ -18,7 +18,7 @@
 		<div class="md-form">
 			<i class="fa fa-calendar fa-2x"></i>
 			<h6>Expiration Month:</h6>
-			<select class="form-control" ng-model="$ctrl.payment.card.exp_month" type="text" data-stripe="exp_month">
+			<select class="form-control" ng-model="$ctrl.payment.card.exp_month" type="text" data-stripe="exp_month" required>
 				<option selected class="select-option" label="January" value="01">January</option>
 				<option class="select-option" label="February" value="02">February</option>
 				<option class="select-option" label="March" value="03">March</option>
@@ -36,7 +36,7 @@
 		<div class="md-form">
 			<i class="fa fa-calendar fa-2x"></i>
 			<h6>Expiration Year:</h6>
-			<select class="input-select no-label form-control" ng-model="$ctrl.payment.card.exp_year" type="text">
+			<select class="input-select no-label form-control" ng-model="$ctrl.payment.card.exp_year" type="text" required>
 				<option class="select-option" label="2016" value="16">2016</option>
 				<option class="select-option" label="2017" value="17">2017</option>
 				<option class="select-option" label="2018" value="18">2018</option>
@@ -56,10 +56,10 @@
 			<i class="fa fa-sort-numeric-asc fa-2x"></i>
 			<h6>Security Code</h6>
 			<input ng-model="$ctrl.payment.card.cvc" maxlength="4" placeholder="Enter Code" type="password" size="4"
-			       name="cvc">
+			       name="cvc" required>
 		</div>
 		<div class="md-form flex1">
-			<button class="animated zoomIn btn btn-primary button5" type="submit" ng-click="$ctrl.show(); $ctrl.goHome(); $ctrl.getTotal()">Submit Payment</button>
+			<button class="animated zoomIn btn btn-primary button5" type="submit" ng-disabled="myForm.$invalid" ng-click="$ctrl.show(); $ctrl.goHome(); $ctrl.getTotal()">Submit Payment</button>
 		</div>
 	</div>
 </div>

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="../styles/signUpStyle.css">
-<div class="animated fadeIn card border" ng-if="$ctrl.show ? true : false">
+<form name="myForm" class="animated fadeIn card border" ng-if="$ctrl.show ? true : false">
       <div class="card-block">
             <div class="">
                   <h3 class="sign"><i class="fa fa-pencil"></i> Sign-Up</h3>
@@ -13,33 +13,33 @@
             </div>
             <div class="md-form">
                   <i class="fa fa-user prefix"></i>
-                  <input type="text" id="form6" class="form-control" ng-model="$ctrl.lastname">
+                  <input type="text" id="form6" class="form-control" ng-model="$ctrl.lastname" required>
                   <label for="form3">Last Name</label>
             </div>
 
             <div class="md-form">
                   <i class="fa fa-envelope prefix"></i>
-                  <input type="text" id="form2" class="form-control" ng-model="$ctrl.email">
+                  <input type="text" id="form2" class="form-control" ng-model="$ctrl.email" required>
                   <label for="form2">Email</label>
             </div>
             <div class="md-form">
                   <i class="fa fa-user-plus prefix"></i>
-                  <input type="text" id="form4" class="form-control" ng-model="$ctrl.username">
+                  <input type="text" id="form4" class="form-control" ng-model="$ctrl.username" required>
                   <label for="form2">Username</label>
             </div>
 
             <div class="md-form">
                   <i class="fa fa-key prefix"></i>
-                  <input type="password" id="form5" class="form-control" ng-model="$ctrl.password">
+                  <input type="password" id="form5" class="form-control" ng-model="$ctrl.password" required>
                   <label for="form2">Password</label>
             </div>
 
             <div class="text-center">
-                  <button class="btn btn-deep-orange button2" ng-click="$ctrl.addNewUser(); $ctrl.goHome()">Submit</button>
+                  <button class="btn btn-deep-orange button2" ng-disabled="myForm.$invalid" ng-click="$ctrl.addNewUser(); $ctrl.goHome()">Submit</button>
             </div>
 
       </div>
-</div>
+</form>
 <div class="animated slideInDown redirect" ng-if="$ctrl.show ? false : true">
       <h1>Thank you for Signing Up</h1>
       <h3>Redirecting In:<div class="count" count-down></div></h3>
