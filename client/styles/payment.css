@@ -51,6 +51,7 @@ i:hover{
     .total{
         width:45vw;
         position: inherit;
+        height: inherit;
 
     }
 }
@@ -72,6 +73,21 @@ i:hover{
     .total{
         width:50vw;
         position: inherit;
+    }
+}
+@media only screen and (max-width: 425px) {
+    .total{
+        width:70vw;
+        position: inherit;
+    }
+    .flex1{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .redirect{
+        padding: 5%;
+        width:60vw;
     }
 }
 @media only screen and (max-width: 375px) {

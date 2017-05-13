@@ -190,6 +190,88 @@ shipping {
     .show1{
         display: none;
     }
+    .message h3{
+        font-size: 1.1em;
+        width: 80vw;
+    }
+    table{
+        width: 80%;
+    }
+    thead{
+        display: none;
+    }
+    tbody{
+        margin-left: 5%;
+    }
+    table td {
+        width: 60vw;
+        /*overflow: hidden;*/
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    .message{
+        margin-right: auto;
+        margin-left: -2.5vw;
+    }
+    .navbar{
+        width: 70vw;
+    }
+    shipping{
+        display:none;
+    }
+    .wrapper_full > table
+    {
+        width: 100%;
+    }
+    .total button{
+        display:none;
+    }
+    .update{
+        display: block;
+    }
+    .remove{
+        display: inline-block;
+    }
+    .show{
+        display: block;
+    }
+    .show1{
+        display: none;
+    }
+    .showD{
+        display: none;
+    }
+    .text{
+        text-align: center;
+    }
+    .center{
+        margin-left: 250%;
+    }
+    .media-body{
+        display: none;
+    }
+    .showRow{
+        display: block;
+    }
+    .showRow button{
+        display: block;
+        position: absolute;
+        bottom: 0;
+    }
+    .showtp{
+        display: none;
+    }
+    .pay1{
+        margin-left: 44vw;
+    }
+    .pay2{
+        position: relative;
+        right:10vw;
+    }
+    .quantityText{
+        display: block;
+    }
 }
 @media only screen and (max-width: 375px) {
     .message h3{
@@ -274,8 +356,6 @@ shipping {
     .quantityText{
         display: block;
     }
-    /**{*/
-        /*border: 1px dotted black;*/
-    /*}*/
+
 
 }

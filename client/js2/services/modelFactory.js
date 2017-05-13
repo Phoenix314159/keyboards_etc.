@@ -3,7 +3,6 @@ angular.module('ecom').factory('modelFactory', () => {
 
         displayTotal = t => {
             total.push(t);
-            console.log(total[0]);
         },
 
         getTotal = () => {

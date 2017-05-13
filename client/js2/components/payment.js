@@ -13,6 +13,8 @@ angular.module('ecom').component('payment', {
             vm.showP = false;
         }
         vm.charge = () => {
+            mainService.deleteAllFromCart().then(response => {  //delete all products from previous cart
+            })
 
             return stripe.card.createToken(vm.payment.card).then(response => {
                 console.log('token created for card ending in ', response.card.last4);
