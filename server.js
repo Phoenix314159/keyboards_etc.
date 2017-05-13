@@ -71,8 +71,7 @@ app.delete('/api/delete/:id', mainCtrl.deleteFromCart);
 app.delete('/api/deleteall', mainCtrl.deleteCart);
 app.put('/api/updatequantity', mainCtrl.updateQuantity);
 app.post('/api/payments', cartCtrl.processPayment);
-// app.put('/api/total', mainCtrl.updateTotal);
-// app.get('/api/total', mainCtrl.getTotal);
+
 
 app.listen(config.port, () => {
     console.log('listening on port 3085');

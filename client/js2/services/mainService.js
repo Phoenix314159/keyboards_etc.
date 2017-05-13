@@ -97,17 +97,4 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
             url: serverUrl + '/api/checklogin'
         })
     };
-    vm.updateTotal = (productId) => {
-        return $http({
-            method: 'PUT',
-            data: {productId},
-            url: serverUrl + '/api/total'
-        })
-    }
-    vm.getTotal = () => {
-        return $http({
-            method: 'GET',
-            url: serverUrl + '/api/total'
-        })
-    }
 })

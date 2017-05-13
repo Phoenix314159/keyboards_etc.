@@ -69,17 +69,11 @@ angular.module('ecom').component('shoppingCart', {
                             vm.pId = false;
                             if (vm.quantityTotal === 0) {
                                 vm.pId = true;
-                                // vm.deleteFromCart(vm.cart1);
                                 if(vm.cart.length === 0){
                                     vm.showCart = false;
                                     vm.show2 === true;
                                 }
                             }
-                            // vm.delete2FromCart = (x) => {
-                            //     if (vm.quantityTotal === 0) {
-                            //         vm.deleteFromCart(x);
-                            //     }
-                            // }
                         }
                     })
                 })

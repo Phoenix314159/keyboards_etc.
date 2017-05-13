@@ -21,7 +21,7 @@ angular.module('ecom').component('payment', {
                 let payment = angular.copy(vm.payment);
                 payment.card = void 0;
                 payment.token = response.id;
-                payment.amount = Number(vm.amount);
+                payment.amount = Number(vm.amount * 100);
                 return $http.post('http://localhost:3085/api/payments', payment);  //post payment to server
             }).then(function (payment) {
                 console.log('successfully submitted payment for $', payment.amount);
@@ -58,7 +58,6 @@ angular.module('ecom').component('payment', {
                     }, 1000)
                 }, 1000)
             }, 1000)
-
         }
     }
 })

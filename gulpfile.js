@@ -9,7 +9,7 @@ let gulp = require('gulp')
     , es2015 = require('babel-preset-es2015')
     , uglify = require('gulp-uglify')
     , ngAnnotate = require('gulp-ng-annotate')
-    , requireConvert = require("gulp-require-convert");
+
 
 gulp.task('build-css', function () {
     return gulp.src('./client/styles/*')
@@ -28,9 +28,7 @@ gulp.task('build-js', function () {
         .pipe(babel({presets: ['es2015']}))
         .pipe(concat('bundle.js'))
         .pipe(ngAnnotate())
-
         .pipe(uglify())
-        // .pipe(requireConvert())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./client/dist/js'));
 });

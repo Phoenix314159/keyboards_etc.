@@ -24,10 +24,5 @@ angular.module('ecom').component('productDetails', {
             mainService.addToCart(vm.customer.id, productId, 1).then(response => {
             })
         }
-        vm.updatePaymentTotal = (productId) => {
-            mainService.updateTotal(productId).then(response => {
-
-            })
-        }
     }
 })

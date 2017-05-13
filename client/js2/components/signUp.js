@@ -1,8 +1,5 @@
 angular.module('ecom').component('signUp', {
     templateUrl: './views/signUp.html',
-    // bindings: {
-    //     view: '<'
-    // },
     controller: function (mainService, $timeout, $state) {
         let vm = this;
         vm.addNewUser = () => { //post request to add new user to users table
