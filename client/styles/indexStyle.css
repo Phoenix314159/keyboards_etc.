@@ -1,34 +1,67 @@
-body{
-   -webkit-animation: fadein 1.5s;
+body {
+    /*-webkit-animation: fadein 1.5s;*/
+    /*-webkit-animation: fadeout 1.5s;*/
+    /*transition: .7s;*/
+    /*-webkit-backface-visibility: hidden;*/
+    /*-webkit-transform: translateZ(0) scale(1.0, 1.0);*/
+    /*-webkit-animation: fadein 1.5s;*/
 }
-nav-bar{
+
+nav-bar {
     display: none;
 }
-#main{
+
+#main {
     display: flex;
     justify-content: center;
 }
 
-h5{
+h5 {
     position: relative;
-    left:14%;
-    margin-top:4%;
+    left: 14%;
+    margin-top: 4%;
 }
-.show{
-    display:none;
+
+.show {
+    display: none;
 }
-change-login{
-    color:white;
+
+change-login {
+    color: white;
 }
-body{
+
+body {
     background-image: url("../js2/images/image1.jpeg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
+    background-blend-mode: darken;
     background-size: cover;
-    -webkit-transform: translateZ(0) scale(1.0, 1.0);
+    -webkit-animation: xfade 12s 9s infinite;
+    /*-webkit-transform: translateZ(0) scale(1.0, 1.0);*/
+    /*-webkit-animation: fadein 1.5s;*/
+    /*-webkit-animation: fadeout 1.5s;*/
+    transition:  3s;
+    -webkit-backface-visibility: hidden;
+    height: 100%;
+    width:100%;
+
 }
-header{
+back-ground{
+    -webkit-animation: xfade 2s 9s infinite;
+}
+body *{
+    transition: none;
+}
+@-webkit-keyframes xfade{
+    0%   { opacity:1; }
+    19%  { opacity:1; }
+    25%  { opacity:0; }
+    94%  { opacity:0; }
+    100% { opacity:1; }
+}
+
+header {
     font-family: 'Inknut Antiqua', serif;
     display: flex;
     justify-content: center;
@@ -41,6 +74,7 @@ header a:hover {
     transform: scale(1.1);
     z-index: 1;
 }
+
 @media only screen and (max-width: 1024px) {
     nav-bar {
         display: none;
@@ -55,40 +89,48 @@ header a:hover {
         padding: 2%;
         border: 2px solid black;
     }
+
     nav-bar form {
-        color:white;
+        color: white;
         text-align: center;
     }
-    header .navbar{
+
+    header .navbar {
         display: none;
     }
+
     header a:hover {
         -webkit-transform: scale(1);
         -ms-transform: scale(1);
         transform: scale(1);
         z-index: 1;
     }
-    nav{
+
+    nav {
         margin-top: 1%;
         /*width: 30vw;*/
         /*height: 15vh;*/
-        margin-right: 68vw ;
+        margin-right: 68vw;
 
         font-size: .8em;
     }
-    .head{
+
+    .head {
         display: flex;
         justify-content: space-around;
     }
 }
+
 @media only screen and (max-width: 375px) {
     nav-bar {
         display: flex;
     }
-    nav-bar form{
+
+    nav-bar form {
         margin-right: 5vw;
     }
-    header .navbar{
+
+    header .navbar {
         display: none;
     }
 }
