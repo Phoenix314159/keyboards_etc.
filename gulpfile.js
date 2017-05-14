@@ -28,7 +28,7 @@ gulp.task('build-js', function () {
         .pipe(babel({presets: ['es2015']}))
         .pipe(concat('bundle.js'))
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        // .pipe(uglify())
         .pipe(sourcemaps.write('./'))
         .pipe(gulp.dest('./client/dist/js'));
 });
