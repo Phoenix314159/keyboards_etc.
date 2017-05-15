@@ -22,18 +22,12 @@ change-login {
 }
 
 body {
-    background-image: url("../js2/images/image1.jpeg");
+    background-image: url("https://previews.123rf.com/images/tzido/tzido1508/tzido150800637/43812432-music-studio-Stock-Photo-recording.jpg");
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-position: center;
     background-blend-mode: darken;
     background-size: cover;
-    opacity: .90;
-    transition:  3s;
-    -webkit-backface-visibility: hidden;
-    height: 100%;
-    width:100%;
-    overflow: scroll;
 }
 
 

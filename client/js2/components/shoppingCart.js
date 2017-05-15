@@ -50,7 +50,6 @@ angular.module('ecom').component('shoppingCart', {
 
                         vm.cart = response.data;
                         vm.cart1 = vm.cart[0].cartid;
-                        console.log(vm.cart[0]);
                         if (vm.cart.length > 0) {
                             vm.showCart = true;
                             vm.products = response.data.map(v => {
@@ -82,7 +81,6 @@ angular.module('ecom').component('shoppingCart', {
                 modelFactory.displayTotal(vm.gTotal);
             }
             vm.deleteFromCart = (cartid) => {
-                console.log('working');
                 mainService.deleteFromCart(cartid).then(response => {  //deletes one item from cart
                     mainService.getCart(vm.customer.id).then(response => { //goes back to server to get cart again pertaining to customer id
                         if (response.data.length > 0) {
