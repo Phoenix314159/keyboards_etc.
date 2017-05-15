@@ -21,9 +21,10 @@ angular.module('ecom').directive('backGround', function ($timeout, $interval) {
             let i = -1;
 
             $interval(() => {
-                backgrounds.forEach(img => {
-                    new Image().src = img;
-                });
+                for(let i=0; i<backgrounds.length; i++){
+                    new Image().src = backgrounds[i];
+                }
+
                 i++;
                 if (i === backgrounds.length) {
                     i = 0;
@@ -38,7 +39,8 @@ angular.module('ecom').directive('backGround', function ($timeout, $interval) {
                     'background-blend-mode': 'darken',
                     'background-size': 'cover',
                     'opacity': '.90',
-                    'transition': '.8s',
+                    'transition': '1.2s',
+                    'transition-timing-function': 'ease-in',
                     '-webkit-backface-visibility': 'hidden',
                     'height': '100%',
                     'width': '100%'
