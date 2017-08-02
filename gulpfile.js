@@ -16,7 +16,6 @@ gulp.task('build-css', function () {
         .pipe(sourcemaps.init())
         .pipe(sass())
         .pipe(cachebust.resources())
-        // .pipe(concat('client/styles.css'))
         .pipe(sourcemaps.write('./maps'))
         .pipe(gulp.dest('./client/dist/css'));
 });
