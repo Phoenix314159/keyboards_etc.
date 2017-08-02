@@ -25,7 +25,7 @@ module.exports = {
         const convertedAmt = parseInt(pennies.join(''));
 
         let charge = stripe.charges.create({
-            amount: convertedAmt, // amount in cents, again
+            amount: convertedAmt, 
             currency: 'usd',
             source: req.body.token,
             description: 'Test charge for Go.com'
