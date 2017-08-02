@@ -9,7 +9,9 @@ const express = require('express'),
     massiveInstance = massive.connectSync({connectionString: connString}),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
-    cartCtrl = require('./cartCtrl');
+    cartCtrl = require('./cartCtrl'),
+    mainCtrl = require('./mainCtrl');
+
 app.use(session({
     secret: config.SESSION_SECRET,
     resave: false,
@@ -21,15 +23,14 @@ let passport = require('./services/passport');
 let corsOptions = {
     origin: 'http://localhost:3085'
 }
+
 app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-const mainCtrl = require('./mainCtrl');
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(log.loggedIn);
 
 app.get('/api/products', mainCtrl.getProducts);
 app.get('/api/products/:type', mainCtrl.getProductByType);
@@ -39,16 +40,7 @@ app.post('/api/addtocart', log.loggedIn, mainCtrl.addToCart);
 app.get('/api/checklogin', log.loggedIn, (req, res) => {
     res.status(200).send({user:true});
 })
-// var supertest = require('supertest-as-promised');
-// var request = supertest('https://ngcourse.herokuapp.com');
-// var assert = require('chai').assert;
-//
-// describe('Backend API', function() {
-//     it ('should return the list of users', function() {
-//         return request.get('/api/v1/users')
-//             .expect(200);
-//     });
-// });
+
 let isAuthed = function (req, res, next) {
     if (!req.isAuthenticated()) return res.status(401)
         .send();
@@ -61,7 +53,7 @@ app.post('/api/login', passport.authenticate('local', {
     failureRedirect: '/#!/login',
     failureFlash: true
 }));
-app.get('/api/logout', function (req, res, next) {
+app.get('/api/logout', (req, res) => {
     req.logout();
     res.redirect('/');
 });
