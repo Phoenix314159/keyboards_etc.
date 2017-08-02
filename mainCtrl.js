@@ -1,16 +1,13 @@
 const app = require('./server'),
     db = app.get('db'),
     bcrypt = require('bcryptjs'),
-    hashPass = (password) => {
-        let salt = bcrypt.genSaltSync(10);
-        let hash = bcrypt.hashSync(password, salt);
+    hashPass = password => {
+        let salt = bcrypt.genSaltSync(10),
+            hash = bcrypt.hashSync(password, salt);
         return hash;
     };
-// stripe = require("stripe")('pk_test_YCIPURTU6ePqrjERaHH1AHMN');
-// token = request.body.stripeToken;
+
 module.exports = {
-
-
     getProducts: (req, res) => {
 
         db.get_products((err, products) => {
@@ -78,5 +75,4 @@ module.exports = {
             !err ? res.status(200).send(cart) : res.status(404).send(err);
         })
     },
-
 }
