@@ -10,20 +10,19 @@ const express = require('express'),
     cookieParser = require('cookie-parser'),
     session = require('express-session'),
     cartCtrl = require('./cartCtrl'),
-    mainCtrl = require('./mainCtrl');
+    mainCtrl = require('./mainCtrl'),
+    passport = require('./services/passport'),
+    corsOptions = {
+        origin: 'http://localhost:3085'
+    };
+app.set('db', massiveInstance);
 
 app.use(session({
     secret: config.SESSION_SECRET,
     resave: false,
     saveUninitialized: true,
     rolling: true
-}))
-app.set('db', massiveInstance);
-let passport = require('./services/passport');
-let corsOptions = {
-    origin: 'http://localhost:3085'
-}
-
+}));
 app.use(cors(corsOptions));
 app.use(express.static(__dirname + '/client'));
 app.use(bodyParser.json());
@@ -41,7 +40,7 @@ app.get('/api/checklogin', log.loggedIn, (req, res) => {
     res.status(200).send({user:true});
 })
 
-let isAuthed = function (req, res, next) {
+let isAuthed = (req, res, next) => {
     if (!req.isAuthenticated()) return res.status(401)
         .send();
     return next();
@@ -63,7 +62,6 @@ app.delete('/api/delete/:id', mainCtrl.deleteFromCart);
 app.delete('/api/deleteall', mainCtrl.deleteCart);
 app.put('/api/updatequantity', mainCtrl.updateQuantity);
 app.post('/api/payments', cartCtrl.processPayment);
-
 
 app.listen(config.port, () => {
     console.log('listening on port 3085');
