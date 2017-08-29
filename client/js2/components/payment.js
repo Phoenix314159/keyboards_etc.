@@ -22,7 +22,7 @@ angular.module('ecom').component('payment', {
                 payment.card = void 0;
                 payment.token = response.id;
                 payment.amount = Number(vm.amount * 100);
-                return $http.post('http://localhost:3085/api/payments', payment);  //post payment to server
+                return $http.post('http://www.keyboardsetc.net/api/payments', payment);  //post payment to server
             }).then(function (payment) {
                 console.log('successfully submitted payment for $', payment.amount);
             })

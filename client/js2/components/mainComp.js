@@ -1,7 +1,7 @@
 angular.module('ecom').component('mainComp', {
     templateUrl: './views/mainComp.html',
     controllerAs: 'main',
-    controller: function (mainService, $state) {
+    controller: function ($http, mainService, $state) {
         let vm = this;
         vm.checkLogin = () => {
             mainService.checkLogin().then(response => {

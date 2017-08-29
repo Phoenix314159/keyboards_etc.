@@ -1,1 +1,0 @@
-{"version":3,"file":"../userStyle.ae3d410c.css","sources":["userStyle.css"],"sourcesContent":["h1{\r\n     text-align: center;\r\n     margin-top: 10%;\r\n }\r\nmain{\r\n    display: none;\r\n}"],"names":[],"mappings":"AAAA,AAAA,EAAE,CAAA;EACG,UAAU,EAAE,MAAM;EAClB,UAAU,EAAE,GAAG,GAClB;;AACF,AAAA,IAAI,CAAA;EACA,OAAO,EAAE,IAAI,GAChB"}

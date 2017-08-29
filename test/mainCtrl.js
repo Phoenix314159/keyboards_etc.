@@ -21,16 +21,7 @@ chai.use(chaiHttp);
 app.set('db', massiveInstance),
 
     describe('mainCtrl', () => {
-        // before(cleanDataBase)      //run before all its
-        // afterEach(cleanDataBase)
-        // afterEach     //run after all its
-        // beforeEach  //run before each it   run beforeEach and afterEach to sanitize database
-        // afterEach   //run after each it    drop all data before testing hits database
-        // it('expect true to equal true', () => {
-        //     expect(true).to.equal(!false);
-        //     expect(2 + 2).to.equal(4);
-        //     expect(obj.name).to.equal('james');
-        // });
+
         it('it should get all products', done => {
             chai.request(server)
                 .get('/api/products')
@@ -150,8 +141,8 @@ app.set('db', massiveInstance),
                     expect(res).to.be.ok;
                     expect(res).to.have.status(200);
                     expect(res.body).to.be.ok;
-                    // expect(res.body).to.have.property('firstname');
-                    // expect(res.body.firstname).to.not.equal(null);
+                    expect(res.body).to.have.property('firstname');
+                    expect(res.body.firstname).to.not.equal(null);
                     done();
                 })
         })

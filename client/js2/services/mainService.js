@@ -1,36 +1,36 @@
 angular.module('ecom').service('mainService', function ($http, $stateParams) {
-    let serverUrl = 'http://localhost:3085',
-        vm = this;
+
+    let vm = this;
 
     vm.getCustomerInfo = () => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/me'
+            url: '/api/me'
         })
     }
 
     vm.getProducts = () => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/products'
-        })
+            url: '/api/products'
+        });
     };
-    vm.getProductsByType = (type) => {
+    vm.getProductsByType = type => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/products/' + type
+            url: '/api/products/' + type
         })
     }
     vm.getProductById = () => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/product/' + $stateParams.id
+            url: '/api/product/' + $stateParams.id
         })
     }
-    vm.getProductById2 = (id) => {
+    vm.getProductById2 = id => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/product/' + id
+            url: '/api/product/' + id
         })
     }
 
@@ -38,14 +38,14 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
         return $http({
             method: 'POST',
             data: {firstname, lastname, email, username, password},
-            url: serverUrl + '/api/newuser'
+            url: '/api/newuser'
         })
     };
 
-    vm.getCart = (id) => {
+    vm.getCart = id => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/cart/' + id
+            url: '/api/cart/' + id
         })
     }
 
@@ -53,21 +53,21 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
         return $http({
             method: 'POST',
             data: {customerId, productId, quantity},
-            url: serverUrl + '/api/addtocart'
+            url: '/api/addtocart'
         })
     };
 
     vm.deleteFromCart = id => {
         return $http({
             method: 'DELETE',
-            url: serverUrl + '/api/delete/' + id
+            url: '/api/delete/' + id
         })
     };
 
     vm.deleteAllFromCart = () => {
         return $http({
             method: 'DELETE',
-            url: serverUrl + '/api/deleteall'
+            url: '/api/deleteall'
         })
     }
 
@@ -75,26 +75,26 @@ angular.module('ecom').service('mainService', function ($http, $stateParams) {
         return $http({
             method: 'PUT',
             data: {id, quantity},
-            url: serverUrl + '/api/updatequantity'
+            url: '/api/updatequantity'
         })
     };
     vm.login = (username, password) => {
         return $http({
             method: 'POST',
             data: {username, password},
-            url: serverUrl + '/api/login'
+            url: '/api/login'
         })
     };
     vm.logout = () => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/logout'
+            url: '/api/logout'
         })
     }
     vm.checkLogin = () => {
         return $http({
             method: 'GET',
-            url: serverUrl + '/api/checklogin'
+            url: '/api/checklogin'
         })
     };
 })

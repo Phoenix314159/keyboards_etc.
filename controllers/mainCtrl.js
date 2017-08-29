@@ -1,15 +1,15 @@
-const app = require('./server'),
-    db = app.get('db'),
+const app = require('../server'),
+    db = app.get('db');
     bcrypt = require('bcryptjs'),
-    hashPass = password => {
-        let salt = bcrypt.genSaltSync(10),
-            hash = bcrypt.hashSync(password, salt);
+    hashPass = (password) => {
+        let salt = bcrypt.genSaltSync(10);
+        let hash = bcrypt.hashSync(password, salt);
         return hash;
     };
 
 module.exports = {
-    getProducts: (req, res) => {
 
+    getProducts: (req, res) => {
         db.get_products((err, products) => {
             !err ? res.status(200).send(products) : res.status(404).send(err);
         })
@@ -38,8 +38,7 @@ module.exports = {
         }
     },
     me: (req, res) => {
-        return res.status(200)
-            .send(req.user);
+        return res.status(200).send(req.user);
     },
     addUser: (req, res) => {
         req.body.password = hashPass(req.body.password);

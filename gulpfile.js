@@ -1,43 +1,40 @@
-let gulp = require('gulp')
-    , sourcemaps = require('gulp-sourcemaps')
-    , sass = require('gulp-sass')
-    , concat = require('gulp-concat')
-    , CacheBuster = require('gulp-cachebust')
-    , cachebust = new CacheBuster()
-    , print = require('gulp-print')
-    , babel = require('gulp-babel')
-    , es2015 = require('babel-preset-es2015')
-    , uglify = require('gulp-uglify')
-    , ngAnnotate = require('gulp-ng-annotate')
+const gulp = require('gulp'),
+    $ = require('gulp-load-plugins')({
+        pattern: ['gulp-*'],
+        replaceString: /\bgulp[\-.]/,
+        lazy: true,
+        camelize: true
+    }),
+    cachebust = new $.cachebust();
 
+gulp.task('views', () => {
+    return gulp.src('./client/views/**/*')
+        .pipe($.print())
+        .pipe($.htmlmin({collapseWhitespace: true}))
+        .pipe(gulp.dest('./dist/views'))
+})
 
-gulp.task('build-css', function () {
-    return gulp.src('./client/styles/*')
-        .pipe(sourcemaps.init())
-        .pipe(sass())
-        .pipe(cachebust.resources())
-        .pipe(sourcemaps.write('./maps'))
-        .pipe(gulp.dest('./client/dist/css'));
-});
-
-gulp.task('build-js', function () {
+gulp.task('build-js', () => {
     return gulp.src('client/js2/**/*.js')
-        .pipe(sourcemaps.init())
-        .pipe(print())
-        .pipe(babel({presets: ['es2015']}))
-        .pipe(concat('bundle.js'))
-        .pipe(ngAnnotate())
-        .pipe(uglify())
-        .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('./client/dist/js'));
+        .pipe($.sourcemaps.init())
+        .pipe($.print())
+        .pipe($.babel({presets: ['es2015']}))
+        .pipe($.concat('bundle.js'))
+        .pipe($.ngAnnotate())
+        .pipe($.uglify())
+        .pipe($.sourcemaps.write('./'))
+        .pipe(gulp.dest('./dist/js'));
 });
 
-gulp.task('build', ['build-css', 'build-js', 'watch'], function () {
-    return gulp.src('index.html')
+gulp.task('build', ['build-js', 'views', 'watch'], () => {
+    return gulp.src('client/index.html')
+        .pipe($.htmlmin({collapseWhitespace: true}))
         .pipe(cachebust.references())
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('watch', function () {
-    return gulp.watch(['./index.html', './partials/*.html', './styles/*.*css', './js/**/*.js'], ['build']);
+gulp.task('watch', () => {
+    return gulp.watch(['./client/index.html', './client/js/**/*.js'], ['build']);
 });
+
+gulp.task('default' , ['watch' , 'build']);

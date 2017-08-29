@@ -8,5 +8,3 @@ create table Users(
 );
 
 
-insert into Users(firstname, lastname, email, username, password)
-values('John', 'DOE', 'dude@dude.com', 'john1','1');
