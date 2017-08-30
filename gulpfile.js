@@ -11,7 +11,17 @@ gulp.task('views', () => {
     return gulp.src('./client/views/**/*')
         .pipe($.print())
         .pipe($.htmlmin({collapseWhitespace: true}))
-        .pipe(gulp.dest('./dist/views'))
+        .pipe(gulp.dest('dist/views'))
+})
+
+gulp.task('minify-css', () => {
+    return gulp.src('./client/styles/*.css')
+        .pipe($.sourcemaps.init())
+        .pipe($.print())
+        .pipe(cachebust.resources())
+        .pipe($.cleanCss())
+        .pipe($.sourcemaps.write('./maps'))
+        .pipe(gulp.dest('dist/styles'))
 })
 
 gulp.task('build-js', () => {
@@ -23,10 +33,10 @@ gulp.task('build-js', () => {
         .pipe($.ngAnnotate())
         .pipe($.uglify())
         .pipe($.sourcemaps.write('./'))
-        .pipe(gulp.dest('./dist/js'));
+        .pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('build', ['build-js', 'views', 'watch'], () => {
+gulp.task('build', ['build-js', 'views', 'minify-css'], () => {
     return gulp.src('client/index.html')
         .pipe($.htmlmin({collapseWhitespace: true}))
         .pipe(cachebust.references())
@@ -34,7 +44,7 @@ gulp.task('build', ['build-js', 'views', 'watch'], () => {
 });
 
 gulp.task('watch', () => {
-    return gulp.watch(['./client/index.html', './client/js/**/*.js'], ['build']);
+    return gulp.watch(['./client/index.html', './client/js/**/*.js', './client/styles/*.css'], ['build']);
 });
 
-gulp.task('default' , ['watch' , 'build']);
+gulp.task('default' , ['build', 'watch']);
