@@ -8,13 +8,12 @@ angular.module('ecom').component('home', {
         vm.subscribe = () => { //user subscribes to newsletter
             alert(`Thank you for subscribing ${vm.name}`)
         }
-         mainService.getCustomerInfo().then(response => {
+         mainService.getCustomerInfo() .then(response => {
             vm.customer = response.data;  //gets customer info to obtain customer id
         })
         mainService.getProductById2(16).then(response1 => { //get an array of the 3 specific products on the home page to display
             mainService.getProductById2(5).then(response2 => {
                 mainService.getProductById2(29).then(response3 => {
-
                     vm.product16 = response1.data[0];
                     vm.product3.push(vm.product16);
                     vm.product5 = response2.data[0];

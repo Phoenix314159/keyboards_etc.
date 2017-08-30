@@ -45,9 +45,10 @@ gulp.task('build-js', () => {
     return gulp.src('./client/js2/**/*.js')
         .pipe($.sourcemaps.init())
         .pipe($.print())
-        .pipe($.babel({presets: ['es2015']}))
+        .pipe($.babel({presets: ['es2015', 'es2017']}))
         .pipe($.concat('bundle.js'))
         .pipe($.ngAnnotate())
+        .pipe($.iife())
         .pipe($.uglify({compress: {sequences: false, join_vars: false}}))
         .pipe($.sourcemaps.write('./'))
         .pipe(gulp.dest('./dist/js'));
