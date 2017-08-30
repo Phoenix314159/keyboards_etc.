@@ -1,6 +1,6 @@
 const express = require('express'),
     app = module.exports = express(),
-    config = require('./config/config.js'),
+    config = require('./config/config'),
     massive = require('massive'),
     fileArr = require('./services/fileArr'),
     connString = config.MASSIVE_URI,
