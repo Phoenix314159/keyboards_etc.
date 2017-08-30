@@ -2,24 +2,21 @@ angular.module('ecom').component('products', {
     templateUrl: './views/products.html',
 
     controller: function (mainService, $stateParams) {
-        let vm = this;
+        let vm = this,
+            getCustomerInfo = async () => { //gets customer info to obtain customer id
+            let response = await mainService.getCustomerInfo();
+            vm.customer = await response.data;
+            }
+        getCustomerInfo();
 
-        mainService.getCustomerInfo().then(response => {
-            vm.customer = response.data;  //gets customer info to obtain customer id
-        })
-
-        vm.getProductsByType = () => {
-            mainService.getProductsByType($stateParams.type).then(response => {
-                vm.products = response.data;
-
-            })
+        vm.getProductsByType = async () => {
+            let response2 = mainService.getProductsByType($stateParams.type);
+                vm.products = await response.data;
         };
         vm.getProductsByType();
 
-        vm.addToCart = productId => {  //adds product to cart dependent on customer id
-            mainService.addToCart(vm.customer.id, productId, 1).then(response => {
-
-            })
+        vm.addToCart = async productId => {  //adds product to cart dependent on customer id
+            await mainService.addToCart(vm.customer.id, productId, 1);
         }
     }
 })

@@ -18,9 +18,8 @@ angular.module('ecom').component('shoppingCart', {
                 vm.showBox = false;
             }
         }
-
         vm.message1 = 'You have no items in your cart';
-        vm.message2 = 'Please log in to add items to your cart'
+        vm.message2 = 'Please log in to add items to your cart';
         mainService.getCustomerInfo().then(response => {  //gets customer info to obtain id
             vm.customer = response.data;
 
@@ -96,7 +95,6 @@ angular.module('ecom').component('shoppingCart', {
                     })
                 })
             }
-
         });
     }
 });

@@ -2,10 +2,8 @@ angular.module('ecom').component('signUp', {
     templateUrl: './views/signUp.html',
     controller: function (mainService, $timeout, $state) {
         let vm = this;
-        vm.addNewUser = () => { //post request to add new user to users table
-            mainService.signUp(vm.firstname, vm.lastname, vm.email, vm.username, vm.password).then(response => {
-
-            })
+        vm.addNewUser = async () => { //post request to add new user to users table
+            await mainService.signUp(vm.firstname, vm.lastname, vm.email, vm.username, vm.password);
         }
         vm.show = true;  //form is initially visible
         vm.goHome = () => {

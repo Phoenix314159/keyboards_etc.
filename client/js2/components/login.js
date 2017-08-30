@@ -6,15 +6,12 @@ angular.module('ecom').component('login', {
     controller: function (mainService, $timeout, $state) {
         let vm = this;
 
-        vm.login = () => {
-            mainService.login(vm.username, vm.password).then(response => {  //login user
-                mainService.deleteAllFromCart().then(response => {  //delete all products from previous cart
-                })
-                mainService.getCustomerInfo().then(response => {  //get customers first name
-                    vm.name = response.data.firstname;
-                    vm.check();
-                })
-            })
+        vm.login = async () => {
+            await mainService.login(vm.username, vm.password);  //login user
+            await mainService.deleteAllFromCart();  //delete all products from previous cart
+            let response = await mainService.getCustomerInfo();
+            vm.name = await response.data.firstname; //get customers first name
+            await vm.check();
         }
         vm.$onInit = () => {
             vm.check = () => {
