@@ -3,24 +3,25 @@ angular.module('ecom').component('mainComp', {
     controllerAs: 'main',
     controller: function ($http, mainService, $state) {
         let vm = this;
-        vm.checkLogin = async () => {
-            let response = await mainService.checkLogin();
-                if (await response.data.user) {
+        vm.checkLogin = () => {
+            mainService.checkLogin().then(response => {
+                if (response.data.user) {
                     vm.user = true;
                 }
+            })
         }
         vm.checkLogin();
-
         vm.logged = () => {
             if (vm.user) {
                 return true;
             }
         }
-        vm.logout = async () => {
-            let response2 = mainService.logout();
-                vm.data = await response2.data;
-                vm.user = await false;
-                await $state.go('home');
+        vm.logout = () => {
+            mainService.logout().then(response => {
+                vm.data = response.data;
+                vm.user = false;
+                $state.go('home');
+            })
         }
     }
 })

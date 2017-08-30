@@ -9,6 +9,7 @@
     "angular-lock": "^2.0.2",
     "angular-payments": "^1.0.7",
     "angular-stripe": "^4.2.13",
+    "angular-ui-router": "^1.0.3",
     "auth0-js": "^8.6.0",
     "babel-preset-es2015": "^6.24.1",
     "bcryptjs": "^2.4.3",

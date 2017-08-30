@@ -9,15 +9,8 @@ let chai = require('chai'),
     massiveInstance = massive.connectSync({connectionString: connString}),
     db = app.get('db'),
     should = chai.should();
-// db = mongojs(config.mongoURI[process.env.NODE_ENV]),
-// Products = db.collection('products'),
-// ObjectId = mongojs.ObjectId;
+
 chai.use(chaiHttp);
-// let cleanDataBase = done => {
-//     Products.drop((e,r) => {
-//         done()
-//     })
-// }
 app.set('db', massiveInstance),
 
     describe('mainCtrl', () => {
@@ -178,26 +171,5 @@ app.set('db', massiveInstance),
         })
 
 
-        // it('get all products', done => {
-        //     chai.request(server)
-        //         .get('/api/products')
-        //         .send(fakeProduct)
-        //         .end((err, res) => { //designate different database for testing
-        //
-        //             expect(res).to.have.staus(200);
-        //             expect(res.body).to.be.ok;
-        //             expect(res.body.name).to.equal(fakeProduct.name);
-        //
-        //             expect(res.body.id).to.be.ok;
-        //             let id = res.body.id;
-        //
-        //             Product.find({id:ObjectId(id)}, (e,r) => {
-        //                 expect(r).to.be.ok;
-        //                 expect(r[0].name).to.equal(fakeProduct.name);
-        //                 done();
-        //             })
-        //
-        //         })
-        // })
     })
 
