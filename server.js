@@ -13,9 +13,16 @@ require('./routes/users')(app);
 require('./routes/products')(app);
 require('./routes/cart')(app);
 
+// fileArr.arr.map(file => {
+//     app.use(express.static(__dirname + file));
+// })
+//<--------- production ----------->
+process.env.PWD = process.cwd();
+
 fileArr.arr.map(file => {
-    app.use(express.static(__dirname + file));
+    app.use('/', express.static(__dirname + file));
 })
+//<--------- production ----------->
 
 app.listen(config.port, () => {
     console.log(`listening on port ${config.port}`);

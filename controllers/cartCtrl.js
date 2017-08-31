@@ -1,5 +1,5 @@
 let stripeKey = require('../config/config.js'),
-    stripe = require('stripe')(stripeKey.secretKey);
+    stripe = require('stripe')(stripeKey.stripeKey);
 module.exports = {
     processPayment: (req, res) => {
         let chargeAmt = req.body.amount,

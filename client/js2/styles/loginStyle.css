@@ -1,0 +1,182 @@
+.card {
+    width: 30vw;
+    height: 50vh;
+    margin-left: 35vw;
+}
+
+.card-block {
+    width: 30vw;
+}
+
+main {
+    display: none;
+}
+
+.border {
+    border: 2px solid black;
+    border-radius: 2%;
+    margin-top: 4%;
+}
+
+.redirect {
+    padding: 1.5%;
+    text-align: center;
+    margin-top: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: whitesmoke;
+    border: solid 2px black;
+    border-radius: 2%;
+    height: auto;
+    width: 40vw;
+    font-family: 'Inknut Antiqua', serif;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    opacity: 0.9;
+
+}
+
+.text {
+    font-family: 'Inknut Antiqua', serif;
+}
+
+.count {
+    font-size: 50px;
+}
+
+.center {
+
+    /*margin-left: 30vw;*/
+}
+
+@media only screen and (max-width: 1024px) {
+    .card {
+        width: 40vw;
+        margin-left: 31vw;
+        height: inherit;
+
+    }
+
+    .button1 {
+        margin-left: 10vw;
+    }
+
+    .text {
+        margin-left: 7vw;
+    }
+
+    .redirect {
+        padding: 1.5%;
+        text-align: center;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: whitesmoke;
+        border: solid 2px black;
+        border-radius: 2%;
+        height: auto;
+        width: 70vw;
+        font-family: 'Inknut Antiqua', serif;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .card {
+        width: 45vw;
+        margin-left: 28vw;
+        margin-top: 7%;
+    }
+
+    .button1 {
+        margin-left: 13.5vw;
+    }
+
+    .text {
+        margin-left: 13vw;
+    }
+
+    #line {
+
+        position: absolute;
+        left: 20vw;
+    }
+
+    .redirect {
+        padding: 1.5%;
+        text-align: center;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: whitesmoke;
+        border: solid 2px black;
+        border-radius: 2%;
+        height: auto;
+        width: 80vw;
+        font-family: 'Inknut Antiqua', serif;
+    }
+
+}
+
+@media only screen and (max-width: 425px) {
+    .card {
+        width: 80vw;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .card-block {
+        width: 30vw;
+    }
+
+    .fa-lock {
+        margin-left: 9vw
+    }
+
+    .text-center {
+        margin-left: 11vw;
+    }
+
+    .button1 {
+        margin-left: 13.5vw;
+    }
+
+    .text {
+        margin-left: 13vw;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .card {
+        width: 80vw;
+        margin-top: 10%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .fa-lock {
+        margin-right: 23vw
+    }
+
+    .text-center {
+        margin-right: 17vw;
+    }
+
+    .card-block {
+        width: 70vw;
+    }
+
+    .redirect {
+        width: 90vw;
+        height: 30vh;
+    }
+
+    .count {
+        margin-top: 10%;
+    }
+
+    .btn {
+        position: relative;
+        right: 4vw;
+    }
+}
