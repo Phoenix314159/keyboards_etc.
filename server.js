@@ -20,7 +20,7 @@ require('./routes/cart')(app);
 process.env.PWD = process.cwd();
 
 fileArr.arr.map(file => {
-    app.use('/', express.static(__dirname + file));
+    app.use('/', express.static(process.env.PWD + file));
 })
 //<--------- production ----------->
 
