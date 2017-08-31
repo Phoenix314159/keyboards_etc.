@@ -16,13 +16,12 @@ require('./routes/cart')(app);
 // fileArr.arr.map(file => {
 //     app.use(express.static(__dirname + file));
 // })
-//<--------- production ----------->
 
+//<--------- production ----------->
 process.env.PWD = process.cwd();
 
-app.get('*', (req, res) => {
-    res.sendFile(process.env.PWD + '/dist');
-})
+app.use('/', express.static(process.env.PWD + '/dist'));
+
 fileArr.arr.filter(a => {
     if(a !== '/dist'){
         return true;
@@ -30,7 +29,6 @@ fileArr.arr.filter(a => {
 }).map(file => {
     app.use(express.static(process.env.PWD + file));
 })
-
 //<--------- production ----------->
 
 app.listen(config.port, () => {
