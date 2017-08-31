@@ -13,22 +13,22 @@ require('./routes/users')(app);
 require('./routes/products')(app);
 require('./routes/cart')(app);
 
-// fileArr.arr.map(file => {
-//     app.use(express.static(__dirname + file));
-// })
+fileArr.arr.map(file => {
+    app.use(express.static(__dirname + file));
+})
 
 //<--------- production ----------->
-process.env.PWD = process.cwd();
-
-app.use('/', express.static(process.env.PWD + '/dist'));
-
-fileArr.arr.filter(a => {
-    if(a !== '/dist'){
-        return true;
-    }
-}).map(file => {
-    app.use(express.static(process.env.PWD + file));
-})
+// process.env.PWD = process.cwd();
+//
+// app.use('/', express.static(process.env.PWD + '/dist'));
+//
+// fileArr.arr.filter(a => {
+//     if(a !== '/dist'){
+//         return true;
+//     }
+// }).map(file => {
+//     app.use(express.static(process.env.PWD + file));
+// })
 //<--------- production ----------->
 
 app.listen(config.port, () => {
