@@ -21,7 +21,7 @@ require('./routes/cart')(app);
 process.env.PWD = process.cwd();
 
 app.get('*', (req, res) => {
-    res.sendFile(process.env.PWD + '/dist/index.html');
+    res.sendFile(process.env.PWD + '/dist');
 })
 fileArr.arr.filter(a => {
     if(a !== '/dist'){
